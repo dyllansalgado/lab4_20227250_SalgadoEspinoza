@@ -1,11 +1,16 @@
 package lab4_20227250_SalgadoEspinoza;
 import java.util.Scanner;
 public class Main {
-	/**
-	 * Mostrar los comandos de StackOverflow
-	 * @param args
-	 */
-	public static void main(String[] args) {	
+    /**
+    * Mostrar los comandos de StackOverflow
+    * @param args
+    */
+    public static void main(String[] args) {
+        MainGraphicView graphicView = new MainGraphicView();
+        graphicView.setVisible(true);
+    }
+}
+	/*public static void main(String[] args) {	
             //Creando usuarios
             Scanner entradaEscaner = new Scanner(System.in);
             //USUARIO 1
@@ -203,6 +208,6 @@ public class Main {
 	  }
     }
     entradaEscaner.close();
-  }
-}
+  }*/
+//}
 
