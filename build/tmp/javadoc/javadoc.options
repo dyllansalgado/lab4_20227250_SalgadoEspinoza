@@ -1,0 +1,17 @@
+-classpath 'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\build\\classes\\java\\main;C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\build\\resources\\main'
+-d 'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\build\\docs\\javadoc'
+-doctitle 'laboratorio3gradle API'
+-notimestamp 
+-quiet 
+-windowtitle 'laboratorio3gradle API'
+'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\src\\main\\java\\laboratorio3gradle\\etiqueta.java'
+'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\src\\main\\java\\laboratorio3gradle\\ListaDeEtiquetas.java'
+'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\src\\main\\java\\laboratorio3gradle\\ListaDePreguntas.java'
+'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\src\\main\\java\\laboratorio3gradle\\ListaDeRespuestas.java'
+'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\src\\main\\java\\laboratorio3gradle\\ListaDeUsuarios.java'
+'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\src\\main\\java\\laboratorio3gradle\\Main.java'
+'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\src\\main\\java\\laboratorio3gradle\\pregunta.java'
+'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\src\\main\\java\\laboratorio3gradle\\respuesta.java'
+'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\src\\main\\java\\laboratorio3gradle\\stack.java'
+'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\src\\main\\java\\laboratorio3gradle\\tiempo.java'
+'C:\\Users\\dsadas\\Desktop\\Paradigmas\\neatbeans\\lab3_20227250_SalgadoEspinoza\\src\\main\\java\\laboratorio3gradle\\usuario.java'
