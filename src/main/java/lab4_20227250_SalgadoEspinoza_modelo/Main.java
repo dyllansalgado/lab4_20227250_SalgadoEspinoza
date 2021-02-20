@@ -1,15 +1,21 @@
-package lab4_20227250_SalgadoEspinoza;
+package lab4_20227250_SalgadoEspinoza_modelo;
 import java.util.Scanner;
+import vista.Vista;
+import controlador.Controlador;
+
 public class Main {
     /**
     * Mostrar los comandos de StackOverflow
     * @param args
     */
     public static void main(String[] args) {
-        MainGraphicView graphicView = new MainGraphicView();
-        graphicView.setVisible(true);
+	stack StackOverflow = new stack() {};
+	Vista view = new Vista();
+	Controlador control = new Controlador(view,StackOverflow);
+        control.iniciar();
     }
 }
+
 	/*public static void main(String[] args) {	
             //Creando usuarios
             Scanner entradaEscaner = new Scanner(System.in);
@@ -208,6 +214,5 @@ public class Main {
 	  }
     }
     entradaEscaner.close();
-  }*/
-//}
-
+  }
+}*/

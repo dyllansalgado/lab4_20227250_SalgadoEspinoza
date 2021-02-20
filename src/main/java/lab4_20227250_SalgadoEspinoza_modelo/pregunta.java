@@ -1,4 +1,4 @@
-package lab4_20227250_SalgadoEspinoza;
+package lab4_20227250_SalgadoEspinoza_modelo;
 
 /**
  * Una clase para representar la pregunta.
@@ -20,6 +20,7 @@ public class pregunta {
 	int estado;
 	int recompensa;
 	String autorRecompensa;
+        
         //Constructor de la pregunta sin recompensa.
 	public pregunta(String tituloPregunta,String contenidoPregunta,String autor,etiqueta miEtiqueta,int id) {
 		setTituloPregunta(tituloPregunta);

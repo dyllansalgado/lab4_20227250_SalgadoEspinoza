@@ -1,4 +1,4 @@
-package lab4_20227250_SalgadoEspinoza;
+package lab4_20227250_SalgadoEspinoza_modelo;
 
 import java.util.Scanner;
 
@@ -15,6 +15,12 @@ public class stack {
 	public ListaDePreguntas preguntas;//Lista de preguntas
 	public ListaDeEtiquetas etiquetas;//Lista de etiquetas
 	
+        
+        public stack(){
+            usuarios = new ListaDeUsuarios();	
+            preguntas = new ListaDePreguntas();
+            etiquetas = new ListaDeEtiquetas();
+        }
 	//Constructor de usuario
 	public stack(String userName,String password,int reputacion) {
 		usuarios = new ListaDeUsuarios();
@@ -22,8 +28,7 @@ public class stack {
 		ActivoUsuario.reputacionUsuario = reputacion;
 		usuarios.agregarUsuario(ActivoUsuario);	
 		preguntas = new ListaDePreguntas();
-		etiquetas = new ListaDeEtiquetas();
-			
+		etiquetas = new ListaDeEtiquetas();		
 	}
         //Metodos.
         /**
@@ -31,13 +36,13 @@ public class stack {
 	* Se solicitan los datos nombre y clave para logearse.
  	* @author Dyllan Salgado
 	*/
-	public void login() {
-		@SuppressWarnings("resource")
-		Scanner entradaEscaner = new Scanner(System.in);
-		System.out.println("Ingrese nombre de usuario");
-		String user = entradaEscaner.nextLine();
-		System.out.println("Ingrese contrasena de usuario");
-		String pass = entradaEscaner.nextLine();
+	public boolean login(String inputUsuario,String inputPassword){
+		//@SuppressWarnings("resource")
+		//Scanner entradaEscaner = new Scanner(System.in);
+		//System.out.println("Ingrese nombre de usuario");
+		String user = inputUsuario;
+		//System.out.println("Ingrese contrasena de usuario");
+		String pass = inputPassword;
 		//Usuario temporal
 		usuario miUsuario = new usuario(user, pass);
 		//Preguntamos si se encuentra registrado un usuario con el nombre dado
@@ -45,15 +50,19 @@ public class stack {
                         //Si el nombre es correcto pero la clave es incorrecta se muestra que se equivoco en la clave.
 			if (usuarios.correctPass(miUsuario) == true) {
 				ActivoUsuario = usuarios.getUsuarioName(miUsuario.nombreUsuario);
-				System.out.println("Usuario Logeado");
+				//System.out.println("Usuario Logeado");
+                                return(true);
 			}else {
-				System.out.println("Contrasena incorrecta");
+				//System.out.println("Contrasena incorrecta");
+                                return(false);
 			}
                 //Si el nombre no existe se muestra en pantalla que no hay nadie registrado con ese nombre.
 		}else {
-			System.out.println("No existe un usuario registrado como " + user);
+                    //System.out.println("No existe un usuario registrado como " + user);
+                    return(false);
 		}
 	}
+        
         /**
 	* logout nos permite deslogear a un usuario que se encuentra logeado.
  	* @author Dyllan Salgado
@@ -84,31 +93,29 @@ public class stack {
         * Si el nombre ya existe se muestra en pantalla y vuelve a mostrar el menu.
  	* @author Dyllan Salgado
 	*/
-	public void registrarUsuario() {
-		int x = 0;
-		@SuppressWarnings("resource")
-		Scanner entradaEscaner = new Scanner(System.in);
-			while (x==0) {
-                                //Se solicita el nombre de usuario.
-				System.out.println("Ingrese nombre de usuario");
-				String nameUser = entradaEscaner.nextLine();
-				usuario myUsuario= new usuario(nameUser, "") ; 
-				//Preguntamos si el usuario ya se encuentra en la lista de usuarios
-				if(usuarios.isInside(myUsuario) == false) {
-					System.out.println("Ingrese contrasena de usuario");
-					String passUser = entradaEscaner.nextLine();
-					myUsuario= new usuario(nameUser, passUser); 
-					usuarios.agregarUsuario(myUsuario);
-					x = 1;
-				}else {
-					System.out.println("Ya existe un usuario registrado con ese nombre, desea continuar? S/N");
-					String answer  =  entradaEscaner.nextLine();
-					if (answer.equals("N")||answer.equals("n")) {
-						x = 1;
-					}
-				}
-			}
+	public void registrarUsuario(String inputUsuario,String inputPassword) {
+            int x = 0;
+            while (x==0) {
+                //Se solicita el nombre de usuario.
+		//System.out.println("Ingrese nombre de usuario");
+		String nameUser = inputUsuario;
+		usuario myUsuario= new usuario(nameUser, "") ; 
+		//Preguntamos si el usuario ya se encuentra en la lista de usuarios
+		if(usuarios.isInside(myUsuario) == false) {
+		    //System.out.println("Ingrese contrasena de usuario");
+                    String passUser = inputPassword;
+                    myUsuario= new usuario(nameUser, passUser); 
+                    usuarios.agregarUsuario(myUsuario);
+                    x = 1;
+		}else {
+                    //System.out.println("Ya existe un usuario registrado con ese nombre, desea continuar? S/N");
+                    //String answer  =  entradaEscaner.nextLine();
+		    //if (answer.equals("N")||answer.equals("n")) {
+                    x = 1;
+		}
+            }
 	}
+        
         //Constructor del nuevo usuario registrado.
 	public void registrarUsuario(String nameUser,String password, int reputacion) {
 		usuario myUsuario= new usuario(nameUser, password,reputacion); 

@@ -1,4 +1,4 @@
-package lab4_20227250_SalgadoEspinoza;
+package lab4_20227250_SalgadoEspinoza_modelo;
 
 /**
  * Una clase para representar al usuario.

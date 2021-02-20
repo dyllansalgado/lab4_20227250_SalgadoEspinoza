@@ -1,4 +1,4 @@
-package lab4_20227250_SalgadoEspinoza;
+package lab4_20227250_SalgadoEspinoza_modelo;
 /**
  * Una clase para representar la lista de Respuestas que contendrán las preguntas.
  * Se utiliza para agrupar todas las respuestas en una lista.

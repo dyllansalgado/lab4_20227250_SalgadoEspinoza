@@ -1,4 +1,4 @@
-package lab4_20227250_SalgadoEspinoza;
+package lab4_20227250_SalgadoEspinoza_modelo;
 import java.text.SimpleDateFormat;
 import java.util.Date; 
 /**
