@@ -18,7 +18,6 @@ import vista.VistaLogeado;
 public class Controlador implements ActionListener{
     private Vista view; 
     private stack StackOverflow;
-    
     private VistaLogeado vistaLogeado;
    
     
@@ -37,6 +36,7 @@ public class Controlador implements ActionListener{
         view.BotonLogearse.addActionListener(this);
         view.setVisible(true);
     }
+    
     //FUNCION PARA INICIAR SEGUNDA VENTANA.
     public void ventanaLogeado(){
         vistaLogeado = new VistaLogeado();
@@ -50,10 +50,15 @@ public class Controlador implements ActionListener{
         //VENTANA INICIAL.
         //Apretando boton registrar.
         if (e.getSource()==view.BotonRegistrar){
-            this.StackOverflow.registrarUsuario(view.InputNameUser.getText(),String.valueOf(view.InputPassUser.getPassword()));
-            view.statusLabel.setText("USUARIO REGISTRADO CON EXITO");
-            view.InputNameUser.setText("");
-            view.InputPassUser.setText("");
+            if(view.InputNameUser.getText().equals("") || String.valueOf(view.InputPassUser.getPassword()).equals("") ){
+                view.statusLabel.setText("Rellenar nombre y contraseña");    
+            }
+            else{
+                this.StackOverflow.registrarUsuario(view.InputNameUser.getText(),String.valueOf(view.InputPassUser.getPassword()));
+                view.statusLabel.setText("USUARIO REGISTRADO CON EXITO");
+                view.InputNameUser.setText("");
+                view.InputPassUser.setText("");
+            }
         }
         //Aprentando boton logear.
         if(e.getSource()== view.BotonLogearse){
