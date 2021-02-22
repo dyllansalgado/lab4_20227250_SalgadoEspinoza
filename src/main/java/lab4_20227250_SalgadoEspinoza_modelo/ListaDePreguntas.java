@@ -1,7 +1,7 @@
 package lab4_20227250_SalgadoEspinoza_modelo;
 
 /**
- * Una clase para representar la lista de preguntas que contendrá el stack.
+ * Una clase para representar la lista de preguntas que contendrï¿½ el stack.
  * Se utiliza para agrupar todas las preguntas en una lista.
  * @author Dyllan Salgado
  */
@@ -77,7 +77,7 @@ public class ListaDePreguntas {
 	}	
 	
 	/**
-	* Método que consulta si una pregunta se encuentra ya en la lista.
+	* Mï¿½todo que consulta si una pregunta se encuentra ya en la lista.
 	* @param myPregunta que se va a comparar con el resto de las preguntas, se compara solo el titulo.
 	* @return Boolean true si se encuentra dentro, false si no se encuentra
  	* @author Dyllan Salgado
@@ -105,7 +105,7 @@ public class ListaDePreguntas {
 			nodoPregunta puntero =  getCabeza();
 			String salidaString = "Preguntas realizadas : \n";
 			int i = 0 ;
-                        //Se recorre la lista con un while y se va imprimiendo las preguntas.
+            //Se recorre la lista con un while y se va imprimiendo las preguntas.
 			while (puntero != null) {
 				salidaString = salidaString +"\nPREGUNTA "+ i + ":\n";
 				salidaString = salidaString + puntero.myPregunta.pregunta2String();
@@ -186,7 +186,7 @@ public class ListaDePreguntas {
 			puntero.myPregunta.answer(miRespuesta);
 		}
 	}
-	//Esta vaci­a la lista de preguntas.
+	//Esta vaciï¿½a la lista de preguntas.
 	public Boolean isEmpty() {
             return tamano == 0;
         }

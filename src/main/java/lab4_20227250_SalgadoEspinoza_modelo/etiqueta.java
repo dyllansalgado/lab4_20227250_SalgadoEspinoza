@@ -3,7 +3,7 @@ package lab4_20227250_SalgadoEspinoza_modelo;
 /**
  * Una clase para representar la etiqueta para las preguntas.
  * Se utiliza esta clase para saber a que area de informacion va enfocada la pregunta.
- * Los atributos de la clase es nombre de la etiqueta y una descripción de esta misma.
+ * Los atributos de la clase es nombre de la etiqueta y una descripciï¿½n de esta misma.
  * @author Dyllan Salgado
  */
 public class etiqueta {

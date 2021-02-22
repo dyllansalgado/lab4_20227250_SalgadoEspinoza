@@ -4,18 +4,20 @@
  * and open the template in the editor.
  */
 package vista;
-
+import javax.swing.DefaultListModel;
 /**
  *
  * @author dyllan
  */
 public class Vista extends javax.swing.JFrame {
-
+    public DefaultListModel listaRegistrados = new DefaultListModel();
     /**
      * Creates new form Vista
      */
     public Vista() {
         initComponents();
+        listaRegistrados = new DefaultListModel(); 
+        ListaRegistrados.setModel(listaRegistrados);
     }
 
     /**
@@ -27,23 +29,36 @@ public class Vista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         TituloNombre = new javax.swing.JLabel();
-        BotonRegistrar = new javax.swing.JButton();
         BotonLogearse = new javax.swing.JButton();
-        TituloContraseña = new javax.swing.JLabel();
+        TituloContrasena = new javax.swing.JLabel();
         InputNameUser = new javax.swing.JTextField();
         InputPassUser = new javax.swing.JPasswordField();
         statusLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        ListaRegistrados = new javax.swing.JList<>();
+        TextRegistrados = new javax.swing.JLabel();
+        BotonRegistrar = new javax.swing.JButton();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         TituloNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TituloNombre.setText("Nombre");
-
-        BotonRegistrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        BotonRegistrar.setText("Registrarse");
 
         BotonLogearse.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BotonLogearse.setText("Logearse");
@@ -53,59 +68,63 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
-        TituloContraseña.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        TituloContraseña.setText("Contraseña");
+        TituloContrasena.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TituloContrasena.setText("Contrasena");
 
         InputNameUser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         InputPassUser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         statusLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        statusLabel.setText("Esperando una acción...");
+        statusLabel.setText("Esperando una accion...");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        ListaRegistrados.setToolTipText("");
+        jScrollPane1.setViewportView(ListaRegistrados);
+
+        TextRegistrados.setText("Registrados");
+
+        BotonRegistrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BotonRegistrar.setText("Registrarse");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(103, 103, 103)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(113, 113, 113)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                                .addGap(51, 51, 51)
+                                .addComponent(BotonRegistrar)
+                                .addGap(42, 42, 42)
+                                .addComponent(BotonLogearse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(60, 60, 60)
-                                        .addComponent(BotonRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(BotonLogearse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(TituloNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(TituloContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(InputPassUser)
-                                            .addComponent(InputNameUser)))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(statusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(31, 31, 31))
-                    .addComponent(jScrollPane1))
-                .addGap(85, 85, 85))
+                                    .addComponent(TituloNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TituloContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(InputPassUser)
+                                    .addComponent(InputNameUser)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(statusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(116, 116, 116))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(169, 169, 169)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(188, 188, 188))
+                    .addComponent(TextRegistrados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(101, 101, 101)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(InputNameUser)
@@ -113,17 +132,19 @@ public class Vista extends javax.swing.JFrame {
                     .addComponent(TituloNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TituloContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TituloContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(InputPassUser))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonLogearse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BotonLogearse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonRegistrar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(statusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                .addGap(60, 60, 60))
+                .addComponent(statusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(13, 13, 13)
+                .addComponent(TextRegistrados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -173,10 +194,13 @@ public class Vista extends javax.swing.JFrame {
     public javax.swing.JButton BotonRegistrar;
     public javax.swing.JTextField InputNameUser;
     public javax.swing.JPasswordField InputPassUser;
-    public javax.swing.JLabel TituloContraseña;
+    public javax.swing.JList<String> ListaRegistrados;
+    public javax.swing.JLabel TextRegistrados;
+    public javax.swing.JLabel TituloContrasena;
     public javax.swing.JLabel TituloNombre;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     public javax.swing.JLabel statusLabel;
     // End of variables declaration//GEN-END:variables
 }

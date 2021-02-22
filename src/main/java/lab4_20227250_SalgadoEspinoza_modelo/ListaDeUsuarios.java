@@ -1,7 +1,7 @@
 package lab4_20227250_SalgadoEspinoza_modelo;
 
 /**
- * Una clase para representar la lista de usuarios que contendrá el stack.
+ * Una clase para representar la lista de usuarios que contendrï¿½ el stack.
  * Se utiliza para agrupar todas los usuarios en una lista.
  * @author Dyllan Salgado
  */
@@ -78,7 +78,7 @@ public class ListaDeUsuarios {
 	}	
 	
 	/**
-	* Método que consulta si un usuario se encuentra ya en la lista.
+	* Mï¿½todo que consulta si un usuario se encuentra ya en la lista.
 	* @param myUsuario que se va a comparar con el resto de las usuarios, se compara solo el nombre.
 	* @return Boolean true si se encuentra dentro, false si no se encuentra
  	* @author Dyllan Salgado
@@ -97,7 +97,7 @@ public class ListaDeUsuarios {
 	}
 	/**
 	* Metodo que consulta si la clave de un usuario corresponde al nombre de usuario dentro de la lista de Usuarios
-	* @param myUsuario que se va a comparar con el resto de los usuarios, se compara solo el nombre y la clave para ver si están correctas.
+	* @param myUsuario que se va a comparar con el resto de los usuarios, se compara solo el nombre y la clave para ver si estï¿½n correctas.
 	* @return Boolean true si se encuentra dentro, false si no se encuentra
 	*/
 	public Boolean correctPass(usuario myUsuario) {
@@ -133,7 +133,7 @@ public class ListaDeUsuarios {
 			}
 			return (salidaString +"\n");
 		}else {
-			return("Lista de usuarios vaci­a\n");
+			return("Lista de usuarios vacia\n");
 		}
 	}
         /**
@@ -152,7 +152,7 @@ public class ListaDeUsuarios {
 			int i = 0 ;
 			//Mientras el puntero no sea nulo
 			while (i < n && puntero != null) {
-				System.out.println(i+".-");
+				//System.out.println(i+".-");
 				puntero = puntero.getSiguiente();
 				i++;
 			}if (i!= n) {
@@ -182,7 +182,7 @@ public class ListaDeUsuarios {
 		return null;
 	}
 	
-	//Esta vaci­a la lista de usuarios.
+	//Esta vaciï¿½a la lista de usuarios.
 	public Boolean isEmpty() {
             return tamano == 0;
         }

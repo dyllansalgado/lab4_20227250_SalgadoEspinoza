@@ -17,9 +17,9 @@ public class pregunta {
 	//Respuestas y Etiquetas
 	ListaDeRespuestas respuestas;
 	ListaDeEtiquetas etiquetas;
-	int estado;
-	int recompensa;
-	String autorRecompensa;
+	public int estado;
+	public int recompensa;
+	public String autorRecompensa;
         
         //Constructor de la pregunta sin recompensa.
 	public pregunta(String tituloPregunta,String contenidoPregunta,String autor,etiqueta miEtiqueta,int id) {

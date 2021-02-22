@@ -1,7 +1,7 @@
 package lab4_20227250_SalgadoEspinoza_modelo;
 
 /**
- * Una clase para representar la lista de etiquetas que contendrán las preguntas.
+ * Una clase para representar la lista de etiquetas que contendrï¿½n las preguntas.
  * Se utiliza para agrupar todas las etiquetas en una lista.
  * @author Dyllan Salgado
  */
@@ -85,7 +85,7 @@ public class ListaDeEtiquetas {
 		}
 	}	
 	/**
-	* Método que consulta si una etiqueta se encuentra ya en la lista.
+	* Mï¿½todo que consulta si una etiqueta se encuentra ya en la lista.
 	* @param myEtiqueta que se va a comparar con el resto de las etiquetas, se compara solo el nombre.
 	* @return Boolean true si se encuentra dentro, false si no se encuentra
  	* @author Dyllan Salgado
@@ -103,7 +103,7 @@ public class ListaDeEtiquetas {
 		return false;
 	}
         /**
-	* Método que consulta si una etiqueta se encuentra ya en la lista.
+	* Mï¿½todo que consulta si una etiqueta se encuentra ya en la lista.
 	* @param etiqueta que se va a comparar con el resto de las etiquetas, se compara solo el nombre.
 	* @return Boolean true si se encuentra dentro, false si no se encuentra
  	* @author Dyllan Salgado
@@ -193,7 +193,7 @@ public class ListaDeEtiquetas {
 			}
 		}
 	}
-	//Esta vaci­a la lista de etiquetas
+	//Esta vaciï¿½a la lista de etiquetas
 	public Boolean isEmpty() {return tamano == 0;}
 	//Selectores de la clase ListaDeEtiquetas.
 	public nodoEtiqueta getCabeza() {return cabeza;}

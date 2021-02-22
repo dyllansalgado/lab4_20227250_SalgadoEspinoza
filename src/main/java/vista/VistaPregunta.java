@@ -57,7 +57,7 @@ public class VistaPregunta extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Usuario", "Reputación"
+                "Usuario", "Reputaciï¿½n"
             }
         ));
         jScrollPane2.setViewportView(jTable1);

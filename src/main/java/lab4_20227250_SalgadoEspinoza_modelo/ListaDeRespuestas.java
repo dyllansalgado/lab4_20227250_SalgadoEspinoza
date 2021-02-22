@@ -1,6 +1,6 @@
 package lab4_20227250_SalgadoEspinoza_modelo;
 /**
- * Una clase para representar la lista de Respuestas que contendrán las preguntas.
+ * Una clase para representar la lista de Respuestas que contendrï¿½n las preguntas.
  * Se utiliza para agrupar todas las respuestas en una lista.
  * @author Dyllan Salgado
  */
@@ -130,7 +130,7 @@ public class ListaDeRespuestas {
 		
 	}
 	
-	//Esta vaci­a la lista de respuestas
+	//Esta vaciï¿½a la lista de respuestas
 	public Boolean isEmpty() {
             return tamano == 0;
         }
