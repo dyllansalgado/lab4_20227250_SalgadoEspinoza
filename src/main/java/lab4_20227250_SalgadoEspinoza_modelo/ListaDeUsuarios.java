@@ -133,7 +133,7 @@ public class ListaDeUsuarios {
 			}
 			return (salidaString +"\n");
 		}else {
-			return("Lista de usuarios vacia\n");
+			return("Lista de usuarios vaci�a\n");
 		}
 	}
         /**
