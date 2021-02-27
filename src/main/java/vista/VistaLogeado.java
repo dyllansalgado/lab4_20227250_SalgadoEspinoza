@@ -31,6 +31,8 @@ public class VistaLogeado extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         BotonPregunta = new javax.swing.JButton();
         BotonRespuesta = new javax.swing.JButton();
         BotonRecompensa = new javax.swing.JButton();
@@ -45,8 +47,22 @@ public class VistaLogeado extends javax.swing.JFrame {
         BotonCrearEtiquetas = new javax.swing.JButton();
         BtnCerrarSesion = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        BotonVerPregunta = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,13 +82,13 @@ public class VistaLogeado extends javax.swing.JFrame {
 
         TablaPreguntas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Titulo", "Contenido", "FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
+                "ID", "Titulo", "Contenido", "Etiquetas", "FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
             }
         ));
         TablaPreguntas.setAlignmentX(1.0F);
@@ -80,7 +96,6 @@ public class VistaLogeado extends javax.swing.JFrame {
         TablaPreguntas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         TablaPreguntas.setMinimumSize(new java.awt.Dimension(200, 64));
         TablaPreguntas.setRowHeight(20);
-        TablaPreguntas.setRowSelectionAllowed(false);
         jScrollPane1.setViewportView(TablaPreguntas);
 
         BotonAceptarRespuesta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -107,14 +122,12 @@ public class VistaLogeado extends javax.swing.JFrame {
 
         jLabel3.setText("Preguntas Realizadas");
 
+        BotonVerPregunta.setText("Ver Pregunta");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnCerrarSesion)
-                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -133,15 +146,10 @@ public class VistaLogeado extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
-                        .addContainerGap())
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tituloUsuario)
                             .addComponent(TituloReputacion))
@@ -149,7 +157,16 @@ public class VistaLogeado extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(InputReputacion)
                             .addComponent(InputUsuario))
-                        .addGap(23, 23, 23))))
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotonVerPregunta)
+                        .addGap(22, 22, 22))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(299, 299, 299)
+                .addComponent(BtnCerrarSesion)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,10 +197,12 @@ public class VistaLogeado extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(jLabel3)
                 .addGap(3, 3, 3)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BotonVerPregunta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addComponent(BtnCerrarSesion)
-                .addContainerGap())
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -211,6 +230,7 @@ public class VistaLogeado extends javax.swing.JFrame {
     public javax.swing.JButton BotonPregunta;
     public javax.swing.JButton BotonRecompensa;
     public javax.swing.JButton BotonRespuesta;
+    public javax.swing.JButton BotonVerPregunta;
     public javax.swing.JButton BtnCerrarSesion;
     public javax.swing.JLabel InputReputacion;
     public javax.swing.JLabel InputUsuario;
@@ -220,6 +240,8 @@ public class VistaLogeado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     public javax.swing.JLabel tituloUsuario;
     // End of variables declaration//GEN-END:variables
 }

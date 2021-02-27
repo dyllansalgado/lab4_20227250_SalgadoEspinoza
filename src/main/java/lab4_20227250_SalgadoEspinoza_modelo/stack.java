@@ -16,10 +16,10 @@ public class stack {
     public ListaDeEtiquetas etiquetas;//Lista de etiquetas
 
     public stack(){
-    usuarios = new ListaDeUsuarios();	
-    preguntas = new ListaDePreguntas();
-    etiquetas = new ListaDeEtiquetas();
-    ActivoUsuario = null;
+        usuarios = new ListaDeUsuarios();	
+        preguntas = new ListaDePreguntas();
+        etiquetas = new ListaDeEtiquetas();
+        ActivoUsuario = null;
     }
     //Constructor de usuario
     public stack(String userName,String password,int reputacion) {
@@ -129,8 +129,9 @@ public class stack {
 	String contenido = entradaEscaner.nextLine();
 	System.out.println(etiquetas.etiquetas2String2());
 	System.out.println("Indique la etiqueta que quiere agregar");
-	int x = entradaEscaner.nextInt();
-	etiqueta miEtiqueta ;
+	int x = entradaEscaner.nextInt();	
+
+        etiqueta miEtiqueta ;
 	if (etiquetas.getEtiquetaN(x)!= null) {
             miEtiqueta =  etiquetas.getEtiquetaN(x);
 	}else {
@@ -161,6 +162,8 @@ public class stack {
 	preguntas.agregarPreguntas(miPregunta);
 	System.out.println("Pregunta agregada");
     }
+
+
     //Constructor de la nueva pregunta.
     public void ask(String titulo,String contenido, String autor,etiqueta miEtiqueta, int reputacion) {
 	pregunta myPregunta = new pregunta(titulo, contenido, autor,miEtiqueta,preguntas.getTamano() + 1 ,reputacion);

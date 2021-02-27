@@ -138,8 +138,27 @@ public class ListaDePreguntas {
 			return (salidaString +"\n");
                 //Si la lista esta vacia no existen preguntas.
 		}else {
-			return("No existen preguntas en el stack\n");
+			return("No existen preguntastes en el stack\n");
 		}
+	}
+	//Permite mostrar las preguntas cuando seleccionamos el boton ver preguntas.
+	public String [] preguntas2Array() {
+	//Si la lista es distinta de vacio se muestran.
+	if (!isEmpty()) {
+		String salida []= new String[this.tamano];
+		nodoPregunta puntero =  getCabeza();
+		int i = 0 ;
+					//Se recorre la lista con un while y se va imprimiendo las preguntas.
+		while (puntero != null && i < this.tamano) {
+			salida [i] =  puntero.myPregunta.getTituloPregunta();
+			puntero = puntero.getSiguiente();
+			i++;
+		}
+		return (salida);
+			//Si la lista esta vacia no existen preguntas.
+	}else {
+		return(null);
+	}
 	}
 	/**
 	* Metodo que dado un indice n, devuelva la pregunta correspondiente en la lista

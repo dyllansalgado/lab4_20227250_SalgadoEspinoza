@@ -16,7 +16,7 @@ public class pregunta {
 	String autorPregunta;
 	//Respuestas y Etiquetas
 	ListaDeRespuestas respuestas;
-	ListaDeEtiquetas etiquetas;
+	public ListaDeEtiquetas etiquetas;
 	public int estado;
 	public int recompensa;
 	public String autorRecompensa;

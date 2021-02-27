@@ -163,6 +163,47 @@ public class ListaDeEtiquetas {
 			return("\nNo existen etiquetas\n");
 		}
 	}
+	        /**
+	* Devolver todos las etiquetas y su contenido en un string.
+	* @return mensaje por pantalla o las preguntas.
+	*/
+	public String etiquetas2String3() {
+		//Si la lista es distinta de vacio se muestran.
+		if (!isEmpty()) {
+			nodoEtiqueta puntero =  getCabeza();
+			String salidaString = "";
+			int i = 0;
+						//Se recorre la lista con un while y se va imprimiendo las etiquetas.
+			while (puntero != null) {
+				salidaString = salidaString + puntero.myEtiqueta.getEtiqueta() + " " ;
+				puntero = puntero.getSiguiente();
+				i++;
+			}
+			return (salidaString +"\n");
+				//Si la lista esta vacia no existen etiquetas.
+		}else {
+			return("\nNo existen etiquetas\n");
+		}
+	}
+	public String[] etiquetas2Array() {
+		//Si la lista es distinta de vacio se muestran.
+		if (!isEmpty()) {
+
+			String salida []= new String[this.tamano];
+			nodoEtiqueta puntero =  getCabeza();
+			int i = 0;
+			//Se recorre la lista con un while y se va imprimiendo las etiquetas.
+			while (puntero != null) {
+				salida[i] =  puntero.myEtiqueta.getEtiqueta();
+				puntero = puntero.getSiguiente();
+				i++;
+			}
+			return (salida);
+				//Si la lista esta vacia no existen etiquetas.
+		}else {
+			return(null);
+		}
+	}
 	
         /**
 	* Metodo que dado un indice n, devuelva la etiqueta correspondiente en la lista
