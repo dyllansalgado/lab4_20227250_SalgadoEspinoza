@@ -195,9 +195,9 @@ public class Vista extends javax.swing.JFrame {
     public javax.swing.JTextField InputNameUser;
     public javax.swing.JPasswordField InputPassUser;
     public javax.swing.JList<String> ListaRegistrados;
-    public javax.swing.JLabel TextRegistrados;
-    public javax.swing.JLabel TituloContrasena;
-    public javax.swing.JLabel TituloNombre;
+    private javax.swing.JLabel TextRegistrados;
+    private javax.swing.JLabel TituloContrasena;
+    private javax.swing.JLabel TituloNombre;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

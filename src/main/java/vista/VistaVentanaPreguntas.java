@@ -176,8 +176,8 @@ public class VistaVentanaPreguntas extends javax.swing.JFrame {
     public javax.swing.JButton BotonRespuesta;
     public javax.swing.JButton BotonVolver;
     public javax.swing.JTextField InputRespuesta;
-    private javax.swing.JLabel NameUser;
-    private javax.swing.JLabel ReputacionUser;
+    public javax.swing.JLabel NameUser;
+    public javax.swing.JLabel ReputacionUser;
     private javax.swing.JLabel TextoIngresarRespuesta;
     public javax.swing.JTextArea VerPregunta;
     private javax.swing.JLabel jLabel1;

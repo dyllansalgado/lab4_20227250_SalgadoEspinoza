@@ -34,7 +34,6 @@ public class VistaLogeado extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         BotonPregunta = new javax.swing.JButton();
-        BotonRespuesta = new javax.swing.JButton();
         BotonRecompensa = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -68,10 +67,6 @@ public class VistaLogeado extends javax.swing.JFrame {
 
         BotonPregunta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BotonPregunta.setText("Realizar Pregunta");
-
-        BotonRespuesta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        BotonRespuesta.setText("Realizar Respuesta");
-        BotonRespuesta.setPreferredSize(new java.awt.Dimension(145, 27));
 
         BotonRecompensa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BotonRecompensa.setText("Ofrecer Recompensa");
@@ -129,19 +124,14 @@ public class VistaLogeado extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(102, 102, 102)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BotonPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotonRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                        .addGap(75, 75, 75)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(BotonAceptarRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
-                            .addComponent(BotonRecompensa, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(BotonCrearEtiquetas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(BotonPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonCrearEtiquetas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(75, 75, 75)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BotonAceptarRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                    .addComponent(BotonRecompensa, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
@@ -187,14 +177,10 @@ public class VistaLogeado extends javax.swing.JFrame {
                     .addComponent(BotonPregunta)
                     .addComponent(BotonRecompensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonAceptarRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(BotonRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BotonCrearEtiquetas)
-                .addGap(1, 1, 1)
+                    .addComponent(BotonCrearEtiquetas))
+                .addGap(37, 37, 37)
                 .addComponent(jLabel3)
                 .addGap(3, 3, 3)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,7 +215,6 @@ public class VistaLogeado extends javax.swing.JFrame {
     public javax.swing.JButton BotonCrearEtiquetas;
     public javax.swing.JButton BotonPregunta;
     public javax.swing.JButton BotonRecompensa;
-    public javax.swing.JButton BotonRespuesta;
     public javax.swing.JButton BotonVerPregunta;
     public javax.swing.JButton BtnCerrarSesion;
     public javax.swing.JLabel InputReputacion;
@@ -242,6 +227,6 @@ public class VistaLogeado extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    public javax.swing.JLabel tituloUsuario;
+    private javax.swing.JLabel tituloUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import lab4_20227250_SalgadoEspinoza_modelo.stack;
 import lab4_20227250_SalgadoEspinoza_modelo.pregunta;
-import lab4_20227250_SalgadoEspinoza_modelo.respuesta;
 import vista.Vista;
 import vista.VistaAccept;
 import vista.VistaEtiquetas;
@@ -85,7 +84,6 @@ public class Controlador implements ActionListener{
         vistaLogeado.InputReputacion.setText(String.valueOf(reputacion));
         vistaLogeado.BtnCerrarSesion.addActionListener(this);
         vistaLogeado.BotonPregunta.addActionListener(this);
-        vistaLogeado.BotonRespuesta.addActionListener(this);
         vistaLogeado.BotonAceptarRespuesta.addActionListener(this);
         vistaLogeado.BotonRecompensa.addActionListener(this);
         vistaLogeado.BotonCrearEtiquetas.addActionListener(this);
@@ -104,6 +102,16 @@ public class Controlador implements ActionListener{
         vistaVentanaPreguntas.VerPregunta.setEditable(false); 
         vistaVentanaPreguntas.VerPregunta.setLineWrap(true);         
     }
+    
+    //FUNCION PARA INICIAR VENTANA CREAR ETIQUETAS.
+    public void ventanaEtiquetas(){
+        vistaEtiquetas = new VistaEtiquetas();
+        vistaEtiquetas.setVisible(true);
+        vistaEtiquetas.BotonAgregarEtiqueta.addActionListener(this);
+        vistaEtiquetas.BotonCerrarSesion.addActionListener(this);
+        vistaEtiquetas.BotonVolver.addActionListener(this);
+    }
+    
     //FUNCION PARA INICIAR VENTANA REALIZAR PREGUNTA.
     public void ventanaRealizarPregunta(){
         vistaPregunta = new VistaPregunta();
@@ -111,13 +119,14 @@ public class Controlador implements ActionListener{
         for (int i = 0; i < options.length; i++) {
             vistaPregunta.InputEtiqueta.addItem(options[i]);
         }
+        
+        vistaPregunta.setVisible(true);
         vistaPregunta.setLocationRelativeTo(null);
         vistaPregunta.BotonCerrarSesion.addActionListener(this);
         vistaPregunta.BotonVolverMenu.addActionListener(this);
         vistaPregunta.BotonPublicarPregunta.addActionListener(this);
-        vistaPregunta.setVisible(true);
-        
-
+       
+    
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -191,10 +200,10 @@ public class Controlador implements ActionListener{
 
 
         //SELECCIONA BOTON DE REALIZAR PREGUNTA.
-        else if(e.getSource()== vistaLogeado.BotonPregunta){
+        /*else if(e.getSource()== vistaLogeado.BotonPregunta){
             ventanaRealizarPregunta();
         }
-        /*else if(e.getSource()== vistaPregunta.BotonPublicarPregunta){
+        else if(e.getSource()== vistaPregunta.BotonPublicarPregunta){
             String titulo =vistaPregunta.InputTituloPregunta.getText();
             String contenido = vistaPregunta.InputContenidoPregunta.getText();
             String autor = StackOverflow.ActivoUsuario.getNombreUsuario();
@@ -209,13 +218,13 @@ public class Controlador implements ActionListener{
                 JOptionPane.showMessageDialog(vistaVentanaPreguntas, "Ingrese minimo una etiqueta", "Alerta",
                 JOptionPane.WARNING_MESSAGE);
             } 
-        }*/
-        /*else if(e.getSource()== vistaPregunta.BotonVolverMenu){
+        }
+        else if(e.getSource()== vistaPregunta.BotonVolverMenu){
             vistaPregunta.setVisible(false);
             vistaPregunta.dispose();
             vistaLogeado.setVisible(true);
-        }*/
-        /*else if(e.getSource()== vistaPregunta.BotonCerrarSesion){
+        }
+        else if(e.getSource()== vistaPregunta.BotonCerrarSesion){
             StackOverflow.logout();
             view.InputNameUser.setText("");
             view.InputPassUser.setText("");
@@ -224,11 +233,39 @@ public class Controlador implements ActionListener{
             vistaLogeado.setVisible(false);
             view.setVisible(true);
         }*/
+        
         //SELECCIONA BOTON DE OFRECER RECOMPENSA.
         //SELECCIONA BOTON DE ACEPTAR RESPUESTA.
         //SELECCIONA BOTON DE CREAR ETIQUETAS.
-        //SELECCIONA EL BOTON DE CERRAR SESION.
-
+        /*else if(e.getSource()== vistaLogeado.BotonCrearEtiquetas){
+            ventanaEtiquetas();     
+        }
+        else if(e.getSource()== vistaEtiquetas.BotonAgregarEtiqueta){
+            if(vistaEtiquetas.InputContenido.getText().equals("") || vistaEtiquetas.InputNombreEtiqueta.getText().equals("")){
+                JOptionPane.showMessageDialog(vistaEtiquetas, "Rellene los espacios de Nombre etiqueta y contenido", "Alerta",
+                JOptionPane.WARNING_MESSAGE);
+            }
+            
+            
+        }
+        else if(e.getSource()== vistaEtiquetas.BotonCerrarSesion){
+            StackOverflow.logout();
+            view.InputNameUser.setText("");
+            view.InputPassUser.setText("");
+            view.statusLabel.setText("Esperando una accion...");
+            vistaEtiquetas.setVisible(false);
+            vistaLogeado.setVisible(false);
+            view.setVisible(true);
+            
+        }
+        else if(e.getSource()== vistaEtiquetas.BotonVolver){
+            vistaEtiquetas.setVisible(false);
+            vistaEtiquetas.dispose();
+            vistaLogeado.setVisible(true);
+            
+        }*/
+        
+        //SELECCIONA EL BOTON DE CERRAR SESION EN VISTALOGEADO.
         else if(e.getSource()== vistaLogeado.BtnCerrarSesion ){
             StackOverflow.logout();
             view.InputNameUser.setText("");
@@ -240,7 +277,6 @@ public class Controlador implements ActionListener{
 
         //VENTANA PREGUNTA
         else if(e.getSource()== vistaVentanaPreguntas.BotonRespuesta){
-
             if(vistaVentanaPreguntas.InputRespuesta.getText().equals("")){
                 JOptionPane.showMessageDialog(vistaVentanaPreguntas, "Rellene el espacio de respuesta", "Alerta",
                 JOptionPane.WARNING_MESSAGE);
