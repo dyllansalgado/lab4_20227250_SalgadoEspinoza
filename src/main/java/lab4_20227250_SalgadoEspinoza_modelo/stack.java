@@ -120,7 +120,7 @@ public class stack {
     * Se solicitan un titulo de pregunta, contenido y la etiqueta a agregar.
     * @author Dyllan Salgado
     */
-    public void ask() {
+    /*public void ask() {
 	@SuppressWarnings("resource")
 	Scanner entradaEscaner = new Scanner(System.in);
 	System.out.println("Ingrese el titulo de la pregunta");
@@ -161,7 +161,7 @@ public class stack {
         //Se agrega la pregunta.
 	preguntas.agregarPreguntas(miPregunta);
 	System.out.println("Pregunta agregada");
-    }
+    }*/
 
 
     //Constructor de la nueva pregunta.
@@ -176,7 +176,7 @@ public class stack {
     * Se solicita la pregunta a responder e indicar la respuesta.
     * @author Dyllan Salgado
     */
-    public void answer() {
+    /*public void answer() {
 	@SuppressWarnings("resource")
 	Scanner entradaEscaner = new Scanner(System.in);
 	System.out.println(preguntas.preguntas2String1());
@@ -197,7 +197,7 @@ public class stack {
             preguntas.answerN(x,miRespuesta);
             System.out.println(miPregunta.respuestas.respuestas2String());
 	}
-    }
+    }*/
     //Constructor de la nueva respuesta.
     public void answer(int x,String respuesta , String autor) {
 	pregunta miPregunta = preguntas.getPreguntaN(x);
@@ -308,30 +308,28 @@ public class stack {
     * estas pueden ser utilizadas por todos lo usuarios que esten registrados.
     * @author Dyllan Salgado
     */
-    public void agregarEtiqueta() {
-	@SuppressWarnings("resource")
-        //Solicitamos el nombre de la etiqueta.        
-        Scanner entradaEscaner = new Scanner(System.in);
-	System.out.println("Ingrese nombre de Etiqueta");
-	String nombre  = entradaEscaner.nextLine();
+    public int agregarEtiqueta(String nombreEtiqueta,String descripcionEtiqueta) {      
+	String nombre  = nombreEtiqueta;
         //Si el nombre de etiqueta ya existe, muestra en pantalla que ya existe esa etiqueta.
 	if (etiquetas.isInside(nombre) == true) {
-            System.out.println("Ya existe una etiqueta con ese nombre");
+            //System.out.println("Ya existe una etiqueta con ese nombre");
+            return 1;
 	}
         //Si no existe el nombre, se debe ingresar una descripcion de esta misma y se a�ade.
 	else {
-            System.out.println("Ingrese descripcion sobre ella");
-            String descripcion = entradaEscaner.nextLine();
+            //System.out.println("Ingrese descripcion sobre ella");
+            String descripcion = descripcionEtiqueta;
             etiqueta myEtiqueta = new etiqueta(nombre,descripcion);
             etiquetas.agregarEtiquetas(myEtiqueta);
+            return 2;
 	}
     }
     
     //Constructor de la etiqueta nueva que se va a agregar.
-    public void agregarEtiqueta(String nombre,String descripcion) {
+    /*public void agregarEtiqueta(String nombre,String descripcion) {
 	etiqueta myEtiqueta = new etiqueta(nombre,descripcion);
 	etiquetas.agregarEtiquetas(myEtiqueta);
-    }
+    }*/
     
     /**
     * Funcion que muestra usuario

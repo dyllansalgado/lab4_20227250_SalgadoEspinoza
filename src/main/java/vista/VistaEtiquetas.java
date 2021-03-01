@@ -39,6 +39,7 @@ public class VistaEtiquetas extends javax.swing.JFrame {
         BotonAgregarEtiqueta = new javax.swing.JButton();
         BotonVolver = new javax.swing.JButton();
         BotonCerrarSesion = new javax.swing.JButton();
+        StatusLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,6 +61,8 @@ public class VistaEtiquetas extends javax.swing.JFrame {
 
         BotonCerrarSesion.setText("Cerrar Sesion");
 
+        StatusLabel.setText("Esperando una accion....");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,6 +72,7 @@ public class VistaEtiquetas extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EtiquetasYDescripcion)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -77,10 +81,11 @@ public class VistaEtiquetas extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(InputNombreEtiqueta, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                                     .addComponent(InputContenido))
-                                .addGap(34, 34, 34)
-                                .addComponent(BotonAgregarEtiqueta)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE))
-                            .addComponent(EtiquetasYDescripcion)))
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(BotonAgregarEtiqueta)
+                                    .addComponent(StatusLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -124,13 +129,15 @@ public class VistaEtiquetas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(97, 97, 97)
                         .addComponent(BotonAgregarEtiqueta)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(StatusLabel)
                 .addGap(18, 18, 18)
-                .addComponent(EtiquetasYDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EtiquetasYDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonVolver)
                     .addComponent(BotonCerrarSesion))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -175,11 +182,12 @@ public class VistaEtiquetas extends javax.swing.JFrame {
     public javax.swing.JButton BotonAgregarEtiqueta;
     public javax.swing.JButton BotonCerrarSesion;
     public javax.swing.JButton BotonVolver;
-    private javax.swing.JTextField EtiquetasYDescripcion;
+    public javax.swing.JTextField EtiquetasYDescripcion;
     public javax.swing.JTextField InputContenido;
     public javax.swing.JTextField InputNombreEtiqueta;
-    private javax.swing.JLabel NombreUsuario;
-    private javax.swing.JLabel ReputacionUsuario;
+    public javax.swing.JLabel NombreUsuario;
+    public javax.swing.JLabel ReputacionUsuario;
+    public javax.swing.JLabel StatusLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

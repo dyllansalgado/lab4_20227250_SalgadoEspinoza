@@ -49,18 +49,18 @@ public class pregunta {
 	* @return salidaString 
 	*/
 	public String pregunta2String() {
-		String salidaString;
-		salidaString = 
-				"ID : " + (idPregunta-1) + 
-				"\nTitulo : " + getTituloPregunta() +
-				"\nContenido : "+ getContenidoPregunta() + 
-				"\nFecha de Publicacion : " + getFechaPublicacion()+
-				"\nAutor:" + getAutorPregunta()+
-				"\nEstado: " + estado +
-				"\nRecompensa : " + recompensa +
-				respuestas.respuestas2String() +
-				etiquetas.etiquetas2String1();
-		return salidaString;
+            String salidaString;
+            salidaString = 
+            "ID : " + (idPregunta-1) + 
+            "\nTitulo : " + getTituloPregunta() +
+            "\nContenido : "+ getContenidoPregunta() + 
+            "\nFecha de Publicacion : " + getFechaPublicacion()+
+            "\nAutor:" + getAutorPregunta()+
+            "\nEstado: " + estado +
+            "\nRecompensa : " + recompensa +
+            respuestas.respuestas2String() +
+            etiquetas.etiquetas2String1();
+            return salidaString;
 	}
         /**
 	* Metodo para asignar una respuesta a una pregunta.

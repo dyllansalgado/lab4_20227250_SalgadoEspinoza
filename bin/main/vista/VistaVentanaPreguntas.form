@@ -115,11 +115,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="...."/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="ReputacionUser">
       <Properties>
         <Property name="text" type="java.lang.String" value="...."/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="BotonRespuesta">
       <Properties>

@@ -145,23 +145,26 @@ public class ListaDeEtiquetas {
 	* @return mensaje por pantalla o las preguntas.
 	*/
 	public String etiquetas2String2() {
-                //Si la lista es distinta de vacio se muestran.
-		if (!isEmpty()) {
-			nodoEtiqueta puntero =  getCabeza();
-			String salidaString = "Etiquetas realizadas : \n";
-			int i = 0;
-                        //Se recorre la lista con un while y se va imprimiendo las etiquetas.
-			while (puntero != null) {
-				salidaString = salidaString +"\n"+ i + ".-";
-				salidaString = salidaString + puntero.myEtiqueta.getEtiqueta() + ":  " + puntero.myEtiqueta.getDescripcionEtiqueta() ;
-				puntero = puntero.getSiguiente();
-				i++;
-			}
-			return (salidaString +"\n");
-                //Si la lista esta vacia no existen etiquetas.
-		}else {
-			return("\nNo existen etiquetas\n");
-		}
+            //Si la lista es distinta de vacio se muestran.
+            if (!isEmpty()) {
+            nodoEtiqueta puntero =  getCabeza();
+            String salidaString = "Etiquetas realizadas :\n";
+            int i = 0;
+            //Se recorre la lista con un while y se va imprimiendo las etiquetas.
+            while (puntero != null) {
+                //salidaString = salidaString +"\n"+ i + ".-";
+                salidaString = "\n"+salidaString + i + ".-" + 
+                "\nNombre etiqueta:" + puntero.myEtiqueta.getEtiqueta() + 
+                "\nDescripcion: " + puntero.myEtiqueta.getDescripcionEtiqueta()+
+                "                           \n\n\n";
+                puntero = puntero.getSiguiente();
+                i++;
+            }
+            return (salidaString +"\n");
+            //Si la lista esta vacia no existen etiquetas.
+            }else {
+                    return("\nNo existen etiquetas\n");
+            }
 	}
 	        /**
 	* Devolver todos las etiquetas y su contenido en un string.
@@ -173,7 +176,7 @@ public class ListaDeEtiquetas {
 			nodoEtiqueta puntero =  getCabeza();
 			String salidaString = "";
 			int i = 0;
-						//Se recorre la lista con un while y se va imprimiendo las etiquetas.
+                        //Se recorre la lista con un while y se va imprimiendo las etiquetas.
 			while (puntero != null) {
 				salidaString = salidaString + puntero.myEtiqueta.getEtiqueta() + " " ;
 				puntero = puntero.getSiguiente();

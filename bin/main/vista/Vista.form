@@ -130,9 +130,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="BotonLogearse">
       <Properties>
@@ -155,9 +152,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Contrasena"/>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="InputNameUser">
       <Properties>
@@ -215,9 +209,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Registrados"/>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="BotonRegistrar">
       <Properties>
