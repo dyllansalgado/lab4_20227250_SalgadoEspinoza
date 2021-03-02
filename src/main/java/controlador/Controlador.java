@@ -1,3 +1,5 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,10 +17,9 @@ import vista.VistaAccept;
 import vista.VistaEtiquetas;
 import vista.VistaLogeado;
 import vista.VistaPregunta;
-import vista.VistaRespuesta;
 import vista.VistaReward;
 import vista.VistaVentanaPreguntas;
-
+import vista.VerRespuestas;
 /**
  *
  * @author dyllan
@@ -32,9 +33,12 @@ public class Controlador implements ActionListener{
     private VistaPregunta vistaPregunta;
     private int activate = 0;
     private int activa =0;
-    private VistaRespuesta vistaRespuesta;
+    private int act=0;
+    private int activo=0;
+    private VerRespuestas verRespuestas;
     private VistaReward vistaReward;
     private VistaVentanaPreguntas vistaVentanaPreguntas;
+    
     
     public Controlador(){
     }
@@ -78,7 +82,6 @@ public class Controlador implements ActionListener{
         matriz, new String [] {
         "ID", "Titulo", "Contenido", "Etiquetas" ,"FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
         }));
-
         vistaLogeado.setTitle("Simulacion de StackOverflow por Dyllan Salgado");
         vistaLogeado.setLocationRelativeTo(null);
         vistaLogeado.InputUsuario.setText(nombre);
@@ -90,7 +93,6 @@ public class Controlador implements ActionListener{
         vistaLogeado.BotonCrearEtiquetas.addActionListener(this);
         vistaLogeado.BotonVerPregunta.addActionListener(this);
         vistaLogeado.setVisible(true);
-
     }
     //FUNCION PARA INICIAR VENTANA PREGUNTA.
     public void ventanaPregunta(pregunta miPregunta, int id){
@@ -115,6 +117,7 @@ public class Controlador implements ActionListener{
         vistaEtiquetas.BotonCerrarSesion.addActionListener(this);
         vistaEtiquetas.BotonVolver.addActionListener(this);
         vistaEtiquetas.EtiquetasYDescripcion.setText(StackOverflow.etiquetas.etiquetas2String2());
+        vistaEtiquetas.setLocationRelativeTo(null);
         vistaEtiquetas.setVisible(true);
     }
     
@@ -150,9 +153,51 @@ public class Controlador implements ActionListener{
         vistaPregunta.BotonVolverMenu.addActionListener(this);
         vistaPregunta.BotonPublicarPregunta.addActionListener(this);
         vistaPregunta.setVisible(true);
-       
-    
     }
+    
+    //FUNCION PARA INICIAR VENTANA REWARD.
+    public void ventanaRealizarReward(){
+        vistaReward = new VistaReward();
+        vistaReward.BotonDarRecompensa.addActionListener(this);
+        vistaReward.BotonCerrarSesion.addActionListener(this);
+        vistaReward.BotonVolver.addActionListener(this);
+        vistaReward.setLocationRelativeTo(null);
+        vistaReward.setVisible(true);
+    }
+    //FUNCION PARA INICIAR VENTANA ACEPTAR
+    public void ventanaAccept(){
+        vistaAccept = new VistaAccept();
+        int n = StackOverflow.preguntas.getTamano();	
+        String matriz [][]= new String [n][9]; 
+	    for (int i = 0; i < n; i++) {
+            matriz [i][0] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).getIdPregunta()) ;
+            matriz [i][1] = StackOverflow.preguntas.getPreguntaN(i).getTituloPregunta() ;
+            matriz [i][2] = StackOverflow.preguntas.getPreguntaN(i).getContenidoPregunta() ;
+            matriz [i][3] = StackOverflow.preguntas.getPreguntaN(i).etiquetas.etiquetas2String3();
+            matriz [i][4] = StackOverflow.preguntas.getPreguntaN(i).getFechaPublicacion() ;
+            matriz [i][5] = StackOverflow.preguntas.getPreguntaN(i).getAutorPregunta();
+            matriz [i][6] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).getRecompensa());
+            matriz [i][7] = StackOverflow.preguntas.getPreguntaN(i).autorRecompensa;
+            matriz [i][8] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).estado);
+	    }
+        vistaAccept.TablaPreguntasUsuario.setModel(new javax.swing.table.DefaultTableModel(
+        matriz, new String [] {
+        "ID", "Titulo", "Contenido", "Etiquetas" ,"FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
+        }));
+        vistaAccept.VerRespuestas.addActionListener(this);
+        vistaAccept.BotonCerrarSesion.addActionListener(this);
+        vistaAccept.BotonVolver.addActionListener(this);
+        vistaAccept.setVisible(true);
+    }
+    //FUNCION PARA VER RESPUESTAS PARA ACEPTAR.
+    public void ventanaVerRespuestas(){
+        verRespuestas = new VerRespuestas();
+        verRespuestas.BotonAceptarRespuesta.addActionListener(this);
+        verRespuestas.BotonCerrarSesion.addActionListener(this);
+        verRespuestas.BotonVolver.addActionListener(this);
+        verRespuestas.setVisible(true);
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         //VENTANA INICIAL.
@@ -189,13 +234,12 @@ public class Controlador implements ActionListener{
                 String nombreUsuario = StackOverflow.usuarios.getUsuarioName(view.InputNameUser.getText()).getNombreUsuario();
                 int reputacion =  StackOverflow.usuarios.getUsuarioName(view.InputNameUser.getText()).getReputacionUsuario();
                 ventanaLogeado(nombreUsuario,reputacion);
-
             }
-            //x  =2
+            //x  =2 quiere decir que la contrasena es incorrecta.
             else if(x == 2){
                 view.statusLabel.setText("contrasena incorrecta");
             } 
-            //x = 3  
+            //x = 3 quiere decir que el usuario es incorrecto.
             else{
                  view.statusLabel.setText("el usuario no es correcto");
             }
@@ -205,11 +249,9 @@ public class Controlador implements ActionListener{
         //VENTANA LOGEADO.
         //SELECCIONA BOTON DE VER PREGUNTA.
         else if(e.getSource()== vistaLogeado.BotonVerPregunta){
-            
             String[] options = StackOverflow.preguntas.preguntas2Array();
             String salida = (String)JOptionPane.showInputDialog(null, "Las preguntas son las siguientes", 
-                    "Elige una pregunta para visualizarlas", JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
-            
+            "Elige una pregunta para visualizarlas", JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
             if (salida != null && !salida.equals(null)) {   
                 int i = 0;
                 while (i<StackOverflow.preguntas.getTamano()) {
@@ -237,40 +279,51 @@ public class Controlador implements ActionListener{
             ventanaRealizarPregunta();
             this.activate = 1 ;
         }
+        //Selecciona el boton para publicar pregunta.
         else if(activate == 1 && e.getSource()== vistaPregunta.BotonPublicarPregunta){
             String titulo =vistaPregunta.InputTituloPregunta.getText();
             String contenido = vistaPregunta.InputContenidoPregunta.getText();
             String autor = StackOverflow.ActivoUsuario.getNombreUsuario();
             String etiqueta = vistaPregunta.InputEtiqueta.getName();
             int index = (int) vistaPregunta.InputEtiqueta.getSelectedIndex();
-            System.out.println(index);
             int reputacion = Integer.parseInt(vistaPregunta.InputRecompensa.getText());
-            System.out.println(StackOverflow.etiquetas.getEtiquetaN(index));
-            if (index != -1) {                   
-                StackOverflow.ask(titulo, contenido, autor, StackOverflow.etiquetas.getEtiquetaN(index), reputacion);
-                JOptionPane.showMessageDialog (null, "Pregunta insertada", "Succes", JOptionPane.INFORMATION_MESSAGE);
-                int n = StackOverflow.preguntas.getTamano();	
-                String matriz [][]= new String [n][9]; 
-                for (int i = 0; i < n; i++) {
-                    matriz [i][0] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).getIdPregunta()) ;
-                    matriz [i][1] = StackOverflow.preguntas.getPreguntaN(i).getTituloPregunta() ;
-                    matriz [i][2] = StackOverflow.preguntas.getPreguntaN(i).getContenidoPregunta() ;
-                    matriz [i][3] = StackOverflow.preguntas.getPreguntaN(i).etiquetas.etiquetas2String3();
-                    matriz [i][4] = StackOverflow.preguntas.getPreguntaN(i).getFechaPublicacion() ;
-                    matriz [i][5] = StackOverflow.preguntas.getPreguntaN(i).getAutorPregunta();
-                    matriz [i][6] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).getRecompensa());
-                    matriz [i][7] = StackOverflow.preguntas.getPreguntaN(i).autorRecompensa;
-                    matriz [i][8] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).estado);
-                }
-                vistaPregunta.TablaConPreguntas.setModel(new javax.swing.table.DefaultTableModel(
-                matriz, new String [] {
-                    "ID", "Titulo", "Contenido", "Etiquetas" ,"FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
-                }));
-            }else{
-                JOptionPane.showMessageDialog(vistaVentanaPreguntas, "Ingrese minimo una etiqueta", "Alerta",
-                JOptionPane.WARNING_MESSAGE);
-            } 
+            //Si el usuario ingresa mas reputacion de la que tiene muestra un mensaje y no se publica la pregunta.
+            if (StackOverflow.ActivoUsuario.getReputacionUsuario() < reputacion){
+                vistaPregunta.StatusLabelPregunta.setText("No tiene reputacion necesaria"); 
+            }
+            //Si ingresa recompensa menor a la que tiene se puede publicar la pregunta.
+            else{
+                //Se ingresa la etiqueta.
+                if (index != -1) {                   
+                    StackOverflow.ask(titulo, contenido, autor, StackOverflow.etiquetas.getEtiquetaN(index), reputacion);
+                    JOptionPane.showMessageDialog (null, "Pregunta insertada", "Succes", JOptionPane.INFORMATION_MESSAGE);
+                    int n = StackOverflow.preguntas.getTamano();	
+                    String matriz [][]= new String [n][9]; 
+                    for (int i = 0; i < n; i++) {
+                        matriz [i][0] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).getIdPregunta()) ;
+                        matriz [i][1] = StackOverflow.preguntas.getPreguntaN(i).getTituloPregunta() ;
+                        matriz [i][2] = StackOverflow.preguntas.getPreguntaN(i).getContenidoPregunta() ;
+                        matriz [i][3] = StackOverflow.preguntas.getPreguntaN(i).etiquetas.etiquetas2String3();
+                        matriz [i][4] = StackOverflow.preguntas.getPreguntaN(i).getFechaPublicacion() ;
+                        matriz [i][5] = StackOverflow.preguntas.getPreguntaN(i).getAutorPregunta();
+                        matriz [i][6] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).getRecompensa());
+                        matriz [i][7] = StackOverflow.preguntas.getPreguntaN(i).autorRecompensa;
+                        matriz [i][8] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).estado);
+                    }
+                    vistaPregunta.TablaConPreguntas.setModel(new javax.swing.table.DefaultTableModel(
+                    matriz, new String [] {
+                        "ID", "Titulo", "Contenido", "Etiquetas" ,"FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
+                    }));
+                    vistaPregunta.StatusLabelPregunta.setText("Agregada con exito");
+                //Si no ingresa etiqueta.
+                }else{
+                    JOptionPane.showMessageDialog(vistaVentanaPreguntas, "Ingrese minimo una etiqueta", "Alerta",
+                    JOptionPane.WARNING_MESSAGE);
+                    vistaPregunta.StatusLabelPregunta.setText("Ingrese etiqueta");
+                }  
+            }
         }
+        //SE VUELVE AL MENU DESDE LA VISTA PREGUNTA.
         else if(activate == 1 && e.getSource()== vistaPregunta.BotonVolverMenu){
             vistaPregunta.setVisible(false);
             vistaPregunta.dispose();
@@ -293,6 +346,7 @@ public class Controlador implements ActionListener{
             "ID", "Titulo", "Contenido", "Etiquetas" ,"FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
             }));
         }
+        //SE CIERRA SESION DESDE LA VENTANA PREGUNTA.
         else if(activate == 1 && e.getSource()== vistaPregunta.BotonCerrarSesion){
             StackOverflow.logout();
             view.InputNameUser.setText("");
@@ -303,19 +357,81 @@ public class Controlador implements ActionListener{
             view.setVisible(true);
         }
         
-
-        
         //SELECCIONA BOTON DE OFRECER RECOMPENSA.
+        else if(e.getSource()== vistaLogeado.BotonRecompensa){
+            ventanaRealizarReward();
+            this.act = 1 ;
+        }
+        
+        //VOLVER A MENU.
+        else if(act == 1 && e.getSource()== vistaReward.BotonVolver){
+            vistaReward.setVisible(false);
+            vistaReward.dispose();
+            vistaLogeado.setVisible(true);
+        }
+        //CERRAR SESION DE VISTA REWARD
+        else if(act == 1 && e.getSource()== vistaReward.BotonCerrarSesion){
+            StackOverflow.logout();
+            view.InputNameUser.setText("");
+            view.InputPassUser.setText("");
+            view.statusLabel.setText("Esperando una accion...");
+            vistaReward.setVisible(false);
+            vistaLogeado.setVisible(false);
+            view.setVisible(true);
+        }
+        
+       
         //SELECCIONA BOTON DE ACEPTAR RESPUESTA.
+        else if(e.getSource()== vistaLogeado.BotonAceptarRespuesta){
+            ventanaAccept();
+            this.activo = 1 ;
+        }
         
-        
-        
+        //VOLVER A MENU DESDE ACCEPT
+        else if(activo == 1 && e.getSource()== vistaAccept.BotonVolver){
+            vistaAccept.setVisible(false);
+            vistaAccept.dispose();
+            vistaLogeado.setVisible(true);
+        }
+        //Mostrar las respuestas de la pregunta que ha realizado el usuario.
+        else if(activo==1 && e.getSource()== vistaAccept.VerRespuestas){
+            String[] options = StackOverflow.preguntas.preguntas2Array();
+            String salida = (String)JOptionPane.showInputDialog(null, "Las preguntas son las siguientes", 
+            "Elige una pregunta para visualizarlas", JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
+            if (salida != null && !salida.equals(null)) {   
+                int i = 0;
+                while (i<StackOverflow.preguntas.getTamano()) {
+                    if (salida.equals(options[i])) {
+                        break;
+                    }
+                    i++;
+                }
+                pregunta miPregunta =  StackOverflow.preguntas.getPreguntaN(i);
+                ventanaVerRespuestas();
+            }
+            else{
+                JOptionPane.showMessageDialog(vistaVentanaPreguntas, "No tiene preguntas", "Alerta",
+                JOptionPane.WARNING_MESSAGE);
+            }    
+        }
+
+        //CERRAR SESION DE VISTA ACCEPT
+        else if(activo == 1 && e.getSource()== vistaAccept.BotonCerrarSesion){
+            StackOverflow.logout();
+            view.InputNameUser.setText("");
+            view.InputPassUser.setText("");
+            view.statusLabel.setText("Esperando una accion...");
+            vistaAccept.setVisible(false);
+            vistaLogeado.setVisible(false);
+            view.setVisible(true);
+        }
         
         //SELECCIONA BOTON DE CREAR ETIQUETAS.
         else if(e.getSource()== vistaLogeado.BotonCrearEtiquetas){
             ventanaEtiquetas(); 
             this.activa = 1 ;
         }
+        //SELECCIONA BOTON AGREGAR ETIQUETAS.
         else if(activa == 1 && e.getSource()== vistaEtiquetas.BotonAgregarEtiqueta){
             int x = StackOverflow.agregarEtiqueta(vistaEtiquetas.InputNombreEtiqueta.getText(), vistaEtiquetas.InputContenido.getText());
             //Si el nombre de etiqueta esta vacio muestra el mensaje.
@@ -328,12 +444,13 @@ public class Controlador implements ActionListener{
             //Si la etiqueta se encuentra registrada muestra el mensaje.
             else if(x==1){
                 vistaEtiquetas.StatusLabel.setText("La etiqueta ya se encuentra registrada");
-            //Si la etiqueta no se encuentra registrada se añade.    
+            //Si la etiqueta no se encuentra registrada se aï¿½ade.    
             }else if(x==2){
-                vistaEtiquetas.StatusLabel.setText("Etiqueta añadida con exito");
+                vistaEtiquetas.StatusLabel.setText("Etiqueta agregada con exito");
                 vistaEtiquetas.EtiquetasYDescripcion.setText(StackOverflow.etiquetas.etiquetas2String2());
             }
         }
+        //SELECCIONA BOTON CERRAR SESION.
         else if(activa == 1 && e.getSource()== vistaEtiquetas.BotonCerrarSesion){
             StackOverflow.logout();
             view.InputNameUser.setText("");
@@ -344,6 +461,7 @@ public class Controlador implements ActionListener{
             view.setVisible(true);
             
         }
+        //SELECCIONA BOTON VOLVER.
         else if(activa == 1 && e.getSource()== vistaEtiquetas.BotonVolver){
             vistaEtiquetas.setVisible(false);
             vistaEtiquetas.dispose();
@@ -352,11 +470,14 @@ public class Controlador implements ActionListener{
         }
                 
         //VENTANA PREGUNTA
+        //SELECCIONAMOS EL BOTON PARA REALIZAR RESPUESTA.
         else if(e.getSource()== vistaVentanaPreguntas.BotonRespuesta){
+            //Si la respuesta esta vacia se muestra un mensaje.
             if(vistaVentanaPreguntas.InputRespuesta.getText().equals("")){
                 JOptionPane.showMessageDialog(vistaVentanaPreguntas, "Rellene el espacio de respuesta", "Alerta",
                 JOptionPane.WARNING_MESSAGE);
             }
+            //Si esta rellenada se puede ingresar la respuesta.
             else{
                 int id = vistaVentanaPreguntas.id;
                 String respuesta = vistaVentanaPreguntas.InputRespuesta.getText() ;
@@ -366,7 +487,7 @@ public class Controlador implements ActionListener{
                 vistaVentanaPreguntas.InputRespuesta.setText("");
             } 
         }
-        
+        //SELECCIONAMOS EL BOTON DE VOLVER AL MENU.
         else if(e.getSource()== vistaVentanaPreguntas.BotonVolver){
             vistaVentanaPreguntas.setVisible(false);
             vistaVentanaPreguntas.dispose();
