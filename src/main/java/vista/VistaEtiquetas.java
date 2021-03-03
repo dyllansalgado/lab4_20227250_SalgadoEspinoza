@@ -35,11 +35,12 @@ public class VistaEtiquetas extends javax.swing.JFrame {
         InputNombreEtiqueta = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         InputContenido = new javax.swing.JTextField();
-        EtiquetasYDescripcion = new javax.swing.JTextField();
         BotonAgregarEtiqueta = new javax.swing.JButton();
         BotonVolver = new javax.swing.JButton();
         BotonCerrarSesion = new javax.swing.JButton();
         StatusLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        EtiquetasYDescripcion = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,16 +64,30 @@ public class VistaEtiquetas extends javax.swing.JFrame {
 
         StatusLabel.setText("Esperando una accion....");
 
+        EtiquetasYDescripcion.setColumns(20);
+        EtiquetasYDescripcion.setRows(5);
+        jScrollPane1.setViewportView(EtiquetasYDescripcion);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ReputacionUsuario))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(26, 26, 26)
+                                .addComponent(NombreUsuario))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(EtiquetasYDescripcion)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -85,18 +100,10 @@ public class VistaEtiquetas extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(BotonAgregarEtiqueta)
                                     .addComponent(StatusLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ReputacionUsuario))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(26, 26, 26)
-                                .addComponent(NombreUsuario)))))
+                                .addComponent(jScrollPane1)
+                                .addGap(20, 20, 20)))))
                 .addGap(34, 34, 34))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -131,9 +138,9 @@ public class VistaEtiquetas extends javax.swing.JFrame {
                         .addComponent(BotonAgregarEtiqueta)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(StatusLabel)
-                .addGap(18, 18, 18)
-                .addComponent(EtiquetasYDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(7, 7, 7)
+                .addComponent(jScrollPane1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonVolver)
                     .addComponent(BotonCerrarSesion))
@@ -182,7 +189,7 @@ public class VistaEtiquetas extends javax.swing.JFrame {
     public javax.swing.JButton BotonAgregarEtiqueta;
     public javax.swing.JButton BotonCerrarSesion;
     public javax.swing.JButton BotonVolver;
-    public javax.swing.JTextField EtiquetasYDescripcion;
+    public javax.swing.JTextArea EtiquetasYDescripcion;
     public javax.swing.JTextField InputContenido;
     public javax.swing.JTextField InputNombreEtiqueta;
     public javax.swing.JLabel NombreUsuario;
@@ -192,5 +199,6 @@ public class VistaEtiquetas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

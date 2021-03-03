@@ -32,12 +32,11 @@ public class VistaReward extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         ReputacionUser = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaPreguntas = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         InputID = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         InputRecompensa = new javax.swing.JTextField();
-        StatusLabel = new javax.swing.JLabel();
         BotonDarRecompensa = new javax.swing.JButton();
         BotonVolver = new javax.swing.JButton();
         BotonCerrarSesion = new javax.swing.JButton();
@@ -52,7 +51,7 @@ public class VistaReward extends javax.swing.JFrame {
 
         ReputacionUser.setText("....");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPreguntas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -63,13 +62,11 @@ public class VistaReward extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaPreguntas);
 
         jLabel5.setText("ID pregunta a otorgar recompensa");
 
         jLabel6.setText("Recompensa a dar");
-
-        StatusLabel.setText("Esperando una accion...");
 
         BotonDarRecompensa.setText("Dar la recompensa");
         BotonDarRecompensa.addActionListener(new java.awt.event.ActionListener() {
@@ -99,25 +96,18 @@ public class VistaReward extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(NameUser)
-                                    .addComponent(ReputacionUser)
-                                    .addComponent(InputRecompensa, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                                    .addComponent(InputID)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(BotonDarRecompensa)
-                                    .addComponent(StatusLabel))))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(NameUser)
+                            .addComponent(ReputacionUser)
+                            .addComponent(InputRecompensa, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                            .addComponent(InputID))
                         .addGap(0, 109, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 15, Short.MAX_VALUE)
@@ -129,6 +119,10 @@ public class VistaReward extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(BotonCerrarSesion)
                 .addGap(23, 23, 23))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(BotonDarRecompensa)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,11 +143,9 @@ public class VistaReward extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(InputRecompensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(StatusLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(34, 34, 34)
                 .addComponent(BotonDarRecompensa)
-                .addGap(14, 14, 14)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -220,12 +212,11 @@ public class VistaReward extends javax.swing.JFrame {
     public javax.swing.JTextField InputRecompensa;
     public javax.swing.JLabel NameUser;
     public javax.swing.JLabel ReputacionUser;
-    public javax.swing.JLabel StatusLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable tablaPreguntas;
     // End of variables declaration//GEN-END:variables
 }

@@ -160,25 +160,26 @@ public class ListaDePreguntas {
             return(null);
         }
     }
-    //Permite mostrar las preguntas cuando seleccionamos el boton ver preguntas.
+    
+    //Permite mostrar las preguntas de un usuario especifico.
     public String [] preguntas2Array(String name) {
     //Si la lista es distinta de vacio se muestran.
         if (!isEmpty()) {
             nodoPregunta puntero =  getCabeza();
             int k = 0 ;
             while (puntero != null && k < this.tamano) {
-                    if (puntero.getMyPregunta().autorPregunta == name){
-                            k++;
-                    }
+                if (puntero.getMyPregunta().autorPregunta == name){
+                    k++;
+                }
             }
             String salida []= new String[k];
             puntero =  getCabeza();
             int i = 0 ;
             //Se recorre la lista con un while y se va imprimiendo las preguntas.
             while (puntero != null && i < k) {
-                    salida [i] =  "ID : " + puntero.myPregunta.idPregunta + " pregunta : " + puntero.myPregunta.getTituloPregunta();
-                    puntero = puntero.getSiguiente();
-                    i++;
+                salida [i] =  "ID : " + puntero.myPregunta.idPregunta + " pregunta : " + puntero.myPregunta.getTituloPregunta();
+                puntero = puntero.getSiguiente();
+                i++;
             }
             return salida;
         //Si la lista esta vacia no existen preguntas.

@@ -10,7 +10,7 @@ package vista;
  * @author dyllan
  */
 public class VerRespuestas extends javax.swing.JFrame {
-
+    public int id;
     /**
      * Creates new form VerRespuestas
      */
@@ -32,13 +32,14 @@ public class VerRespuestas extends javax.swing.JFrame {
         NombreUsuario = new javax.swing.JLabel();
         NombreReputacion = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         InputIDRespuesta = new javax.swing.JTextField();
         BotonAceptarRespuesta = new javax.swing.JButton();
         StatusLabel = new javax.swing.JLabel();
         BotonCerrarSesion = new javax.swing.JButton();
         BotonVolver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        VerPreguntaSeleccionada = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,8 +53,6 @@ public class VerRespuestas extends javax.swing.JFrame {
 
         jLabel3.setText("Pregunta Seleccionada");
 
-        jTextField1.setText("jTextField1");
-
         jLabel4.setText("Ingrese ID de respuesta a aceptar");
 
         InputIDRespuesta.setText("...");
@@ -65,6 +64,10 @@ public class VerRespuestas extends javax.swing.JFrame {
         BotonCerrarSesion.setText("Cerrar Sesion");
 
         BotonVolver.setText("Volver");
+
+        VerPreguntaSeleccionada.setColumns(20);
+        VerPreguntaSeleccionada.setRows(5);
+        jScrollPane1.setViewportView(VerPreguntaSeleccionada);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,10 +93,12 @@ public class VerRespuestas extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(BotonCerrarSesion))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane1)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(18, 18, 18)
                                         .addComponent(InputIDRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,8 +108,8 @@ public class VerRespuestas extends javax.swing.JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(10, 10, 10)
                                                 .addComponent(StatusLabel)))))
-                                .addGap(0, 8, Short.MAX_VALUE)))))
-                .addContainerGap())
+                                .addGap(18, 18, 18)))))
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,16 +124,16 @@ public class VerRespuestas extends javax.swing.JFrame {
                     .addComponent(NombreReputacion))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(InputIDRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonAceptarRespuesta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(StatusLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonCerrarSesion)
                     .addComponent(BotonVolver))
@@ -180,11 +185,12 @@ public class VerRespuestas extends javax.swing.JFrame {
     public javax.swing.JTextField InputIDRespuesta;
     public javax.swing.JLabel NombreReputacion;
     public javax.swing.JLabel NombreUsuario;
-    private javax.swing.JLabel StatusLabel;
+    public javax.swing.JLabel StatusLabel;
+    public javax.swing.JTextArea VerPreguntaSeleccionada;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    public javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

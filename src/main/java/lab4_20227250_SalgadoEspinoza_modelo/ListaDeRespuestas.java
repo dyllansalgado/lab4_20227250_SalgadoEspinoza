@@ -106,46 +106,43 @@ public class ListaDeRespuestas {
  	* @author Dyllan Salgado
 	*/
 	public respuesta getRespuestaN(int n) {
-		//Si el n ingresado no supera el tamano total de archivos
-		if (n > tamano || n < 0) {
-			System.out.println("El indice excede al limite de respuestas");
-			return null;
-		}else{
-			nodoRespuesta puntero =  getCabeza();
-			int i = 0 ;
-			//Mientras el puntero no sea nulo
-			while (i < n && puntero != null) {
-				System.out.println(i+".-");
-				puntero = puntero.getSiguiente();
-				i++;
-			}if (i!= n) {
-                                //Si es i es distinto de n no hay preguntas disponibles.
-				System.out.println("No hay respuestas disponibles");
-				return null;
-			}else {
-				//Creamos lista de respuestas desde 0
-				return puntero.myRespuesta;
-			}
-		}
-		
-	}
-	
-	//Esta vaci�a la lista de respuestas
-	public Boolean isEmpty() {
-            return tamano == 0;
+        //Si el n ingresado no supera el tamano total de archivos
+        if (n > tamano || n < 0) {
+            return null;
+        }else{
+            nodoRespuesta puntero =  getCabeza();
+            int i = 0 ;
+            //Mientras el puntero no sea nulo
+            while (i < n && puntero != null) {
+                System.out.println(i+".-");
+                puntero = puntero.getSiguiente();
+                i++;
+            }if (i!= n) {
+                //Si es i es distinto de n no hay preguntas disponibles.
+                System.out.println("No hay respuestas disponibles");
+                return null;
+            }else {
+                //Creamos lista de respuestas desde 0
+                return puntero.myRespuesta;
+            }
         }
-	//Selectores de la clase ListaDeRespuestas.
-	public int getTamano() {
-            return tamano;
-        }
-        public nodoRespuesta getCabeza() {
-            return cabeza;
-        }
-        //Modificadores de la clase ListaDeEtiquetas.
-	public void setTamano(int tamano) {
-            this.tamano = tamano;
-        }
-	public void setCabeza(nodoRespuesta cabeza) {
-            this.cabeza = cabeza;
-        }
+    }
+    //Esta vaci�a la lista de respuestas
+    public Boolean isEmpty() {
+        return tamano == 0;
+    }
+    //Selectores de la clase ListaDeRespuestas.
+    public int getTamano() {
+        return tamano;
+    }
+    public nodoRespuesta getCabeza() {
+        return cabeza;
+    }
+    //Modificadores de la clase ListaDeEtiquetas.
+    public void setTamano(int tamano) {
+        this.tamano = tamano;
+    }
+    public void setCabeza(nodoRespuesta cabeza) {
+        this.cabeza = cabeza;
+    }
 }

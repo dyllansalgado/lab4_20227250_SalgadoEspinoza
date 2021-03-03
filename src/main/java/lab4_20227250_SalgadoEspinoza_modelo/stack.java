@@ -116,55 +116,10 @@ public class stack {
         usuarios.agregarUsuario(myUsuario);
     }
     /**
-    * ask nos permite formular una pregunta con un usuario logeado.
-    * Se solicitan un titulo de pregunta, contenido y la etiqueta a agregar.
+    * ask nos permite formular una pregunta con un usuario logeado.Se solicitan un titulo de pregunta, contenido y la etiqueta a agregar.
     * @author Dyllan Salgado
+     * @param titulo es el titulo de la pregunta, contenido, autor,etiqueta,reputacion.
     */
-    /*public void ask() {
-	@SuppressWarnings("resource")
-	Scanner entradaEscaner = new Scanner(System.in);
-	System.out.println("Ingrese el titulo de la pregunta");
-	String titulo = entradaEscaner.nextLine();
-	System.out.println("Ingrese el contenido de la pregunta");
-	String contenido = entradaEscaner.nextLine();
-	System.out.println(etiquetas.etiquetas2String2());
-	System.out.println("Indique la etiqueta que quiere agregar");
-	int x = entradaEscaner.nextInt();	
-
-        etiqueta miEtiqueta ;
-	if (etiquetas.getEtiquetaN(x)!= null) {
-            miEtiqueta =  etiquetas.getEtiquetaN(x);
-	}else {
-            miEtiqueta = new etiqueta("NULL","NULL");
-	}
-	pregunta miPregunta = new pregunta(titulo, contenido, ActivoUsuario.getNombreUsuario(),miEtiqueta, preguntas.getTamano()+1);
-	miPregunta.autorRecompensa = ActivoUsuario.getNombreUsuario();
-	//Solo si su recompensa es distinta de 0
-        if (ActivoUsuario.reputacionUsuario != 0) {
-            System.out.println("Desea asignar recompensa? S/N" );
-            @SuppressWarnings("resource")
-            Scanner entradaEscaner2 = new Scanner(System.in);
-            String respuesta = "N"; 
-            try {
-		respuesta= entradaEscaner2.nextLine();
-		} catch (Exception e) {
-                }
-                miPregunta.autorRecompensa =  ActivoUsuario.nombreUsuario;
-                miPregunta.setRecompensa(0);
-                if (respuesta.equals("S")||respuesta.equals("s")) {
-                    System.out.println("Ingrese recompensa a asignar" );
-                    int recompensa = entradaEscaner2.nextInt();
-                    miPregunta.setRecompensa(recompensa);
-                    miPregunta.autorRecompensa =  ActivoUsuario.nombreUsuario;	
-                }
-	}
-        //Se agrega la pregunta.
-	preguntas.agregarPreguntas(miPregunta);
-	System.out.println("Pregunta agregada");
-    }*/
-
-
-    //Constructor de la nueva pregunta.
     public void ask(String titulo,String contenido, String autor,etiqueta miEtiqueta, int reputacion) {
 	pregunta myPregunta = new pregunta(titulo, contenido, autor,miEtiqueta,preguntas.getTamano() + 1 ,reputacion);
 	//Se agrega a la lista de preguntas.
@@ -172,33 +127,10 @@ public class stack {
     }
     
     /**
-    * answer nos permite formular una respuesta con un usuario logeado.
-    * Se solicita la pregunta a responder e indicar la respuesta.
+    * answer nos permite formular una respuesta con un usuario logeado.Se solicita la pregunta a responder e indicar la respuesta.
     * @author Dyllan Salgado
+    * @param x es la pregunta seleccionada, respuesta y autor de respuesta.
     */
-    /*public void answer() {
-	@SuppressWarnings("resource")
-	Scanner entradaEscaner = new Scanner(System.in);
-	System.out.println(preguntas.preguntas2String1());
-	System.out.println("Elija pregunta a responder");
-	int x  = entradaEscaner.nextInt();
-        //Si el indice de pregunta se excede muestra el mensaje fuera de rango.
-	if (x<0 || x>=preguntas.getTamano()) {
-            System.out.println("Indice fuera de rango");
-        //Si no lo supera se selecciona y se puede responder.
-	}else {
-            System.out.println("Indique la respuesta");
-            String respuestaString = "My answe";
-            @SuppressWarnings("resource")
-            Scanner entradaEscaner2 = new Scanner(System.in);
-            respuestaString = entradaEscaner2.nextLine();
-            pregunta miPregunta = preguntas.getPreguntaN(x);
-            respuesta miRespuesta = new respuesta(respuestaString, ActivoUsuario.getNombreUsuario(), miPregunta.respuestas.getTamano()+1);
-            preguntas.answerN(x,miRespuesta);
-            System.out.println(miPregunta.respuestas.respuestas2String());
-	}
-    }*/
-    //Constructor de la nueva respuesta.
     public void answer(int x,String respuesta , String autor) {
 	pregunta miPregunta = preguntas.getPreguntaN(x);
 	respuesta miRespuesta = new respuesta(respuesta, autor, miPregunta.respuestas.getTamano()+1);
@@ -210,6 +142,52 @@ public class stack {
     * Se solicitan el indice de la pregunta a dar recompensa.
     * @author Dyllan Salgado
     */
+    public int reward(int inputPregunta,int inputRecompensa) {
+        int pregunta = inputPregunta-1;
+        int recompensa= inputRecompensa;
+        //Si no existe el indice muestra fuera de rango.
+        if (preguntas.getPreguntaN(pregunta) == null) {
+            System.out.println("Indice fuera de rango");
+            return 0;
+        }
+        //Si esta en rango se asigna la recompensa a la pregunta.
+	else {
+            pregunta miPregunta = preguntas.getPreguntaN(pregunta);
+            int ok  = 0;
+            while (ok == 0) {
+		System.out.println("Indique cuanta recompensa quiere agregar");
+		System.out.println("Su reputacion actual es : "+ ActivoUsuario.reputacionUsuario);
+                //Si la reputacion es mayor a 0 se ve si puede dar recompensa
+		if (recompensa <= ActivoUsuario.getReputacionUsuario() && recompensa > 0) {	
+                    int recompensaActual  =  miPregunta.recompensa;
+                    //Si la reputacion del usuario que ofrece recompensa es menor a lo que da muestra en pantalla el mensaje.
+                    if (recompensa > ActivoUsuario.reputacionUsuario) {
+			System.out.println("No tiene la reputacion necesaria para ofrecer recompensa");
+                        return 1;
+                    //Si es mayor puede darla sin problemas.
+                    }else if (recompensaActual>recompensa) {
+			System.out.println("Actualmente existe una recompensa mayor por esta pregunta");
+                        return 2;
+                    //Si no ofrece no pasa nada.
+                    }else{
+                        miPregunta.autorRecompensa = ActivoUsuario.getNombreUsuario();
+                        miPregunta.recompensa = recompensa;
+                        ok= 1;
+                        System.out.println("Recompensa actualizada");
+                        return 3;
+                    }
+                //Si la reputacion es igual a 0 no puede dar recompensa.      
+		}else {
+                    System.out.println("La reputacion no es suficiente para ofrecer recompensa");
+                    ok=1;
+                    return 4;
+		}
+            }
+        return 5;
+	}
+    }
+    
+    /*
     public void reward() {
 	@SuppressWarnings("resource")
 	Scanner entradaEscaner = new Scanner(System.in);
@@ -251,99 +229,40 @@ public class stack {
             }
 	}
     }
-        
+    */
     /**
     * accept permite a un usuario que genero la pregunta aceptar una respuesta a esta misma.
     * Solo el usuario que genero la pregunta puede aceptar respuestas a esta.
     * @author Dyllan Salgado
     */ 
-    public void accept() {
-        @SuppressWarnings("resource")
-	Scanner entradaEscaner = new Scanner(System.in);
-	System.out.println(preguntas.preguntas2String1());
-	int x  = entradaEscaner.nextInt();
-        //Se le pide que ingrese la pregunta a aceptar si se pasa del rango muestra el mensaje.
-	if (preguntas.getPreguntaN(x) == null) {
-            System.out.println("Indice fuera de rango");
-	}
-        //Si la pregunta ya esta marcada como respondida se avisa que esta respondida.
-	else if (preguntas.getPreguntaN(x)!= null &&preguntas.getPreguntaN(x).estado == 1) {
-            System.out.println("Esta pregunta ya esta respondida");
-	}  
-	//Si el autor seleccionado no es nulo y corresponde al que realizo la pregunta
-	else if (preguntas.getPreguntaN(x)!= null &&preguntas.getPreguntaN(x).autorPregunta.equals(ActivoUsuario.nombreUsuario) ) {
-            pregunta miPregunta  = preguntas.getPreguntaN(x);
-            //Si no hay respuestas en la pregunta se muestra el sgte mensaje.
-            if(miPregunta.respuestas.isEmpty()) {
-		System.out.println("No existen respuestas a esta pregunta");
-            //Si existen respuestas se pregunta cual quiere aceptar.
-            }else {
-		System.out.println(miPregunta.respuestas.respuestas2String());
-		System.out.println("Eliga cual pregunta quiere aceptar");
-		int y  = entradaEscaner.nextInt();
-                //Ingresa una respuesta fuera de indice.
-		if (miPregunta.respuestas.getRespuestaN(y) == null) {
-                    System.out.println("Indice fuera de rango");
-		}else {
-                    //Se le asignan los valores, si habia recompensa se dan y si la recompensa era 0 se le da 15 al usuario
-                    //que respondio y 2 al que acepto la respuesta.
-                    miPregunta.estado = 1 ;
-                    System.out.println("Respuesta aceptada");	
-                    usuario userRecompensa = usuarios.getUsuarioName(miPregunta.autorRecompensa);
-                    usuario userPregunta = usuarios.getUsuarioName(miPregunta.autorPregunta);
-                    usuario userRespuesta = usuarios.getUsuarioName(miPregunta.respuestas.getRespuestaN(y).getAutor());
-                    userRecompensa.reputacionUsuario = userRecompensa.reputacionUsuario - miPregunta.recompensa;
-                    userPregunta.reputacionUsuario = userPregunta.reputacionUsuario + 2;
-                    userRespuesta.reputacionUsuario = userRespuesta.reputacionUsuario + 15 + miPregunta.recompensa;
-		}	
-            }
-        //Usuario logeado trata de aceptar respuestas que no son de su pregunta.
-	}else {
-            System.out.println("Usted no ha realizado la pregunta");
-	}		
-    }
-    
-    /*public void accept(int x) {
-        //Se le pide que ingrese la pregunta a aceptar si se pasa del rango muestra el mensaje.
-        if (preguntas.getPreguntaN(x) == null) {
-                System.out.println("Indice fuera de rango");
+    public boolean accept(int inputNumeroRespuesta,int preguntaSeleccionada) {
+	int numPregunta  = preguntaSeleccionada;
+        int numRespuesta = inputNumeroRespuesta;
+        pregunta miPregunta  = preguntas.getPreguntaN(numPregunta);
+        respuesta miRespuesta = miPregunta.respuestas.getRespuestaN(numRespuesta);
+        System.out.println("ID pregunta :  "+ numPregunta + " ID respuesta "+ numRespuesta + " Total de respuestas : " +  miPregunta.respuestas.getTamano());
+        if ( miRespuesta != null) {
+            miPregunta.estado = 1 ;
+            System.out.println("Respuesta aceptada");	
+            usuario userRecompensa = usuarios.getUsuarioName(miPregunta.autorRecompensa);
+            usuario userPregunta = usuarios.getUsuarioName(miPregunta.autorPregunta);
+            System.out.println(userRecompensa);
+            System.out.println("me caigo aca?");
+            usuario userRespuesta = usuarios.getUsuarioName(miPregunta.respuestas.getRespuestaN(numRespuesta).getAutor());
+            System.out.println("me caigo acaaaaa?");
+            userRecompensa.reputacionUsuario = userRecompensa.reputacionUsuario - miPregunta.recompensa;
+            userPregunta.reputacionUsuario = userPregunta.reputacionUsuario + 2;
+            userRespuesta.reputacionUsuario = userRespuesta.reputacionUsuario + 15 + miPregunta.recompensa;
+            System.out.println(userPregunta.nombreUsuario);
+            System.out.println(userRespuesta.nombreUsuario);
+            return true;
         }
-            //Si la pregunta ya esta marcada como respondida se avisa que esta respondida.
-        else if (preguntas.getPreguntaN(x)!= null &&preguntas.getPreguntaN(x).estado == 1) {
-                System.out.println("Esta pregunta ya esta respondida");
-        }  
-        //Si el autor seleccionado no es nulo y corresponde al que realizo la pregunta
-        else if (preguntas.getPreguntaN(x)!= null &&preguntas.getPreguntaN(x).autorPregunta.equals(ActivoUsuario.nombreUsuario) ) {
-                pregunta miPregunta  = preguntas.getPreguntaN(x);
-                //Si no hay respuestas en la pregunta se muestra el sgte mensaje.
-                if(miPregunta.respuestas.isEmpty()) {
-            System.out.println("No existen respuestas a esta pregunta");
-                //Si existen respuestas se pregunta cual quiere aceptar.
-                }else {
-            System.out.println(miPregunta.respuestas.respuestas2String());
-            System.out.println("Eliga cual pregunta quiere aceptar");
-            int y  = entradaEscaner.nextInt();
-                    //Ingresa una respuesta fuera de indice.
-            if (miPregunta.respuestas.getRespuestaN(y) == null) {
-                        System.out.println("Indice fuera de rango");
-            }else {
-                    //Se le asignan los valores, si habia recompensa se dan y si la recompensa era 0 se le da 15 al usuario
-                    //que respondio y 2 al que acepto la respuesta.
-                    miPregunta.estado = 1 ;
-                    System.out.println("Respuesta aceptada");	
-                    usuario userRecompensa = usuarios.getUsuarioName(miPregunta.autorRecompensa);
-                    usuario userPregunta = usuarios.getUsuarioName(miPregunta.autorPregunta);
-                    usuario userRespuesta = usuarios.getUsuarioName(miPregunta.respuestas.getRespuestaN(y).getAutor());
-                    userRecompensa.reputacionUsuario = userRecompensa.reputacionUsuario - miPregunta.recompensa;
-                    userPregunta.reputacionUsuario = userPregunta.reputacionUsuario + 2;
-                    userRespuesta.reputacionUsuario = userRespuesta.reputacionUsuario + 15 + miPregunta.recompensa;
-            }	
-                }
-            //Usuario logeado trata de aceptar respuestas que no son de su pregunta.
-        }else {
-                System.out.println("Usted no ha realizado la pregunta");
-        }		
-    }*/
+        
+        else{
+            System.out.println("ta mal");
+            return false;
+        }
+    }  
     /**
     * agregarEtiqueta permite a un usuario crear nuevas etiquetas para el stack, 
     * estas pueden ser utilizadas por todos lo usuarios que esten registrados.

@@ -78,8 +78,6 @@ public class VistaAccept extends javax.swing.JFrame {
             }
         });
 
-        BotonCerrarSesion.setText("Cerrar Sesion");
-
         VerRespuestas.setText("Ver Respuestas");
 
         TablaPreguntasUsuario.setModel(new javax.swing.table.DefaultTableModel(
@@ -112,13 +110,13 @@ public class VistaAccept extends javax.swing.JFrame {
                         .addComponent(NameUser)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(446, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(BotonCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BotonVolver)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BotonCerrarSesion)
-                        .addGap(6, 6, 6))
+                        .addGap(30, 30, 30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(VerRespuestas)
                         .addContainerGap())))
@@ -143,7 +141,7 @@ public class VistaAccept extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(VerRespuestas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotonVolver)
                     .addComponent(BotonCerrarSesion))
                 .addContainerGap())

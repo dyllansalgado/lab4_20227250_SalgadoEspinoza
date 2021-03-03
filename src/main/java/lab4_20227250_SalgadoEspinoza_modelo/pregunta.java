@@ -42,6 +42,9 @@ public class pregunta {
 		setFechaPublicacion(tiempo.getActualTime());
 		setIdPregunta(id);
 		setRecompensa(recompensa);
+		if (recompensa==0) {
+			autorRecompensa = autor;
+		}
 		respuestas = new ListaDeRespuestas();
 	}
         /**
@@ -67,11 +70,10 @@ public class pregunta {
         * @param miRespuesta  es la respuesta que se asigna a la pregunta.
 	*/
 	public void answer(respuesta miRespuesta) {
-		if (respuestas.getTamano() == 0) {
-			respuestas = new ListaDeRespuestas() ;
-			respuestas.agregarRespuesta(miRespuesta);
-		}
-		
+            if (respuestas.getTamano() == 0) {
+                respuestas = new ListaDeRespuestas() ;
+                respuestas.agregarRespuesta(miRespuesta);
+            }	
 	}
         //Selectores y modificares de la clase pregunta.
 	public int getIdPregunta() {return idPregunta;}

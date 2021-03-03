@@ -17,7 +17,7 @@ public class Main {
 
     String nameUser = "Dyllan";
     String passUser = "123";
-    int reputacion = 100;
+    int reputacion = 10;
     //StackOverflow.registrarUsuario(nameUser,passUser,reputacion);
     stack StackOverflow = new stack(nameUser, passUser,reputacion);
     StackOverflow.logout();
