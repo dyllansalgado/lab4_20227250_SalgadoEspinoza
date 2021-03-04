@@ -192,8 +192,8 @@ public class VistaAccept extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BotonCerrarSesion;
     public javax.swing.JButton BotonVolver;
-    private javax.swing.JLabel NameUser;
-    private javax.swing.JLabel ReputacionUser;
+    public javax.swing.JLabel NameUser;
+    public javax.swing.JLabel ReputacionUser;
     public javax.swing.JTable TablaPreguntasUsuario;
     public javax.swing.JButton VerRespuestas;
     private javax.swing.JLabel jLabel1;
