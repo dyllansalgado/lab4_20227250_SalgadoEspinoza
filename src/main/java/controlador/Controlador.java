@@ -31,7 +31,6 @@ public class Controlador implements ActionListener{
     private VerRespuestas verRespuestas;
     private VistaReward vistaReward;
     private VistaVentanaPreguntas vistaVentanaPreguntas;
-
     public Controlador(){
     }
     /**
@@ -281,12 +280,14 @@ public class Controlador implements ActionListener{
         verRespuestas.VerPreguntaSeleccionada.setLineWrap(true);
         verRespuestas.NombreUsuario.setText(StackOverflow.ActivoUsuario.getNombreUsuario());
         verRespuestas.NombreReputacion.setText(String.valueOf(StackOverflow.ActivoUsuario.getReputacionUsuario()));
+        //verRespuestas.NombreReputacion.setText(String.valueOf(repuActualizado));
         verRespuestas.setLocationRelativeTo(null);
         //Se muestra la ventana.
         verRespuestas.setVisible(true);
     }
     
     //actionPerformed permite realizar los eventos de los botones de las vistas.
+    //Es override porque todos los botones tienen esta funcion definida.
     @Override
     public void actionPerformed(ActionEvent e) {
         //VENTANA INICIAL.
@@ -315,8 +316,11 @@ public class Controlador implements ActionListener{
         else if(e.getSource()== view.BotonLogearse){
             //X obtiene los valores del login, 1 esta todo correcto, 2 la clave no es correcta, 3 usuario no es correcto.
             int x = StackOverflow.login(view.InputNameUser.getText(), String.valueOf(view.InputPassUser.getPassword()));
+            if(view.InputNameUser.getText().equals("") || String.valueOf(view.InputPassUser.getPassword()).equals("")){
+                view.statusLabel.setText("Rellenar todos los campos disponibles");
+            }
             //Cuando el nombre de usuario y clave corresponden a un usuario se abre la nueva ventana.
-            if(x==1){
+            else if(x==1){
                 view.setVisible(false);
                 String nombreUsuario = StackOverflow.usuarios.getUsuarioName(view.InputNameUser.getText()).getNombreUsuario();
                 int reputacion =  StackOverflow.usuarios.getUsuarioName(view.InputNameUser.getText()).getReputacionUsuario();
@@ -379,44 +383,53 @@ public class Controlador implements ActionListener{
             String autor = StackOverflow.ActivoUsuario.getNombreUsuario();
             String etiqueta = vistaPregunta.InputEtiqueta.getName();
             int index = (int) vistaPregunta.InputEtiqueta.getSelectedIndex();
-            int reputacion = Integer.parseInt(vistaPregunta.InputRecompensa.getText());
-            //Si el usuario ingresa mas reputacion de la que tiene muestra un mensaje y no se publica la pregunta.
-            if (StackOverflow.ActivoUsuario.getReputacionUsuario() < reputacion){
-                vistaPregunta.StatusLabelPregunta.setText("No tiene reputacion necesaria"); 
+            if(vistaPregunta.InputRecompensa.getText().equals("")||titulo.equals("")||contenido.equals("")){
+               vistaPregunta.StatusLabelPregunta.setText("Rellene todos los campos disponibles"); 
             }
-            //Si ingresa recompensa menor a la que tiene se puede publicar la pregunta.
             else{
-                //Se ingresa la etiqueta.
-                if (index != -1) {
-                    StackOverflow.ask(titulo, contenido, autor, StackOverflow.etiquetas.getEtiquetaN(index), reputacion);
-                    JOptionPane.showMessageDialog (null, "Pregunta insertada", "Succes", JOptionPane.INFORMATION_MESSAGE);
-                    //Se muestran las preguntas dentro de la ventana realizar pregunta.
-                    int n = StackOverflow.preguntas.getTamano();	
-                    String matriz [][]= new String [n][9]; 
-                    for (int i = 0; i < n; i++) {
-                        matriz [i][0] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).getIdPregunta()) ;
-                        matriz [i][1] = StackOverflow.preguntas.getPreguntaN(i).getTituloPregunta() ;
-                        matriz [i][2] = StackOverflow.preguntas.getPreguntaN(i).getContenidoPregunta() ;
-                        matriz [i][3] = StackOverflow.preguntas.getPreguntaN(i).etiquetas.etiquetas2String3();
-                        matriz [i][4] = StackOverflow.preguntas.getPreguntaN(i).getFechaPublicacion() ;
-                        matriz [i][5] = StackOverflow.preguntas.getPreguntaN(i).getAutorPregunta();
-                        matriz [i][6] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).getRecompensa());
-                        matriz [i][7] = StackOverflow.preguntas.getPreguntaN(i).autorRecompensa;
-                        matriz [i][8] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).estado);
-                    }
-                    vistaPregunta.TablaConPreguntas.setModel(new javax.swing.table.DefaultTableModel(
-                    matriz, new String [] {
-                        "ID", "Titulo", "Contenido", "Etiquetas" ,"FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
-                    }));
-                    vistaPregunta.StatusLabelPregunta.setText("Agregada con exito");
-                    vistaPregunta.InputReputacion.setText(String.valueOf(StackOverflow.ActivoUsuario.getReputacionUsuario()));
-                    vistaLogeado.InputReputacion.setText(String.valueOf(StackOverflow.ActivoUsuario.getReputacionUsuario()));
-                //Si no ingresa etiqueta.
-                }else{
-                    JOptionPane.showMessageDialog(vistaVentanaPreguntas, "Ingrese minimo una etiqueta", "Alerta",
-                    JOptionPane.WARNING_MESSAGE);
-                    vistaPregunta.StatusLabelPregunta.setText("Ingrese etiqueta");
-                }  
+                int reputacion = Integer.parseInt(vistaPregunta.InputRecompensa.getText());
+                //Si el usuario ingresa mas reputacion de la que tiene muestra un mensaje y no se publica la pregunta.
+                if (StackOverflow.ActivoUsuario.getReputacionUsuario() < reputacion){
+                    vistaPregunta.StatusLabelPregunta.setText("No tiene reputacion necesaria"); 
+                }
+                //Si el usuario ingresa una recompensa menor a 0.
+                else if(reputacion < 0){
+                    vistaPregunta.StatusLabelPregunta.setText("Ingrese valores positivos"); 
+                }
+                //Si ingresa recompensa menor a la que tiene se puede publicar la pregunta.
+                else{
+                    //Se ingresa la etiqueta.
+                    if (index != -1) {
+                        StackOverflow.ask(titulo, contenido, autor, StackOverflow.etiquetas.getEtiquetaN(index), reputacion);
+                        JOptionPane.showMessageDialog (null, "Pregunta insertada", "Succes", JOptionPane.INFORMATION_MESSAGE);
+                        //Se muestran las preguntas dentro de la ventana realizar pregunta.
+                        int repuActualizada = StackOverflow.ActivoUsuario.getReputacionUsuario()-reputacion;
+                       
+                        int n = StackOverflow.preguntas.getTamano();	
+                        String matriz [][]= new String [n][9]; 
+                        for (int i = 0; i < n; i++) {
+                            matriz [i][0] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).getIdPregunta()) ;
+                            matriz [i][1] = StackOverflow.preguntas.getPreguntaN(i).getTituloPregunta() ;
+                            matriz [i][2] = StackOverflow.preguntas.getPreguntaN(i).getContenidoPregunta() ;
+                            matriz [i][3] = StackOverflow.preguntas.getPreguntaN(i).etiquetas.etiquetas2String3();
+                            matriz [i][4] = StackOverflow.preguntas.getPreguntaN(i).getFechaPublicacion() ;
+                            matriz [i][5] = StackOverflow.preguntas.getPreguntaN(i).getAutorPregunta();
+                            matriz [i][6] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).getRecompensa());
+                            matriz [i][7] = StackOverflow.preguntas.getPreguntaN(i).autorRecompensa;
+                            matriz [i][8] = String.valueOf(StackOverflow.preguntas.getPreguntaN(i).estado);
+                        }
+                        vistaPregunta.TablaConPreguntas.setModel(new javax.swing.table.DefaultTableModel(
+                        matriz, new String [] {
+                            "ID", "Titulo", "Contenido", "Etiquetas" ,"FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
+                        }));
+                        vistaPregunta.StatusLabelPregunta.setText("Agregada con exito");
+                    //Si no ingresa etiqueta.
+                    }else{
+                        JOptionPane.showMessageDialog(vistaVentanaPreguntas, "Ingrese minimo una etiqueta", "Alerta",
+                        JOptionPane.WARNING_MESSAGE);
+                        vistaPregunta.StatusLabelPregunta.setText("Ingrese etiqueta");
+                    }  
+                }
             }
         }
         //SE VUELVE AL MENU DESDE LA VISTA PREGUNTA.
@@ -574,6 +587,10 @@ public class Controlador implements ActionListener{
                     JOptionPane.showMessageDialog(null, "La pregunta seleccionada no es de su autoria", "Alerta", 
                     JOptionPane.WARNING_MESSAGE);
                 }
+                else if (miPregunta.estado==1){
+                    JOptionPane.showMessageDialog(null, "La pregunta ya tiene respuesta aceptada", "Alerta", 
+                    JOptionPane.WARNING_MESSAGE);
+                }
                 //Si la pregunta corresponde al usuario, se abre la ventana para ver las respuestas.
                 else{
                     ventanaVerRespuestas(miPregunta,i);
@@ -633,7 +650,7 @@ public class Controlador implements ActionListener{
             int preguntaID = verRespuestas.id;
             //Se verifica si es true, si es verdad se acepta la respuesta.
             Boolean verificador = StackOverflow.accept(IDrespuesta,preguntaID) ;
-            if(verificador == true ){
+            if(verificador == true){
                 verRespuestas.StatusLabel.setText("Respuesta aceptada con exito");
                 verRespuestas.InputIDRespuesta.setText("");
                 //Se muestran las preguntas.
@@ -654,10 +671,11 @@ public class Controlador implements ActionListener{
                 matriz, new String [] {
                 "ID", "Titulo", "Contenido", "Etiquetas" ,"FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
                 }));
+                
             }
             //Si no se puede aceptar la respuesta se muestra mensaje.
             else{
-              verRespuestas.StatusLabel.setText("no se puede aceptar" + IDrespuesta + preguntaID);  
+              verRespuestas.StatusLabel.setText("La respuesta ya se encuentra aceptada, por ende no se puede volver a aceptar" + IDrespuesta + preguntaID);  
             }
         }
         //CERRAR SESION DE VISTA ACCEPT

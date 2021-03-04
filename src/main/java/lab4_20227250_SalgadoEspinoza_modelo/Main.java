@@ -80,7 +80,9 @@ public class Main {
     //RESPUESTA 10:
     StackOverflow.answer(0, "Mi respuesta es troll xD\n", "Zapallo");
     StackOverflow.preguntas.getPreguntaN(0).autorRecompensa= "Dyllan";
-	Controlador control = new Controlador(view,StackOverflow);
-        control.iniciar();
+    
+    //Iniciamos la ventana.
+    Controlador control = new Controlador(view,StackOverflow);
+    control.iniciar();
     }
 }

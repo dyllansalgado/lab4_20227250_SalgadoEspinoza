@@ -143,7 +143,6 @@ public class stack {
         int recompensa= inputRecompensa;
         //Si no existe el indice muestra fuera de rango.
         if (preguntas.getPreguntaN(pregunta) == null) {
-            System.out.println("Indice fuera de rango");
             return 0;
         }
         //Si esta en rango se asigna la recompensa a la pregunta.
@@ -151,30 +150,24 @@ public class stack {
             pregunta miPregunta = preguntas.getPreguntaN(pregunta);
             int ok  = 0;
             while (ok == 0) {
-		System.out.println("Indique cuanta recompensa quiere agregar");
-		System.out.println("Su reputacion actual es : "+ ActivoUsuario.reputacionUsuario);
                 //Si la reputacion es mayor a 0 se ve si puede dar recompensa
 		if (recompensa <= ActivoUsuario.getReputacionUsuario() && recompensa > 0) {	
                     int recompensaActual  =  miPregunta.recompensa;
                     //Si la reputacion del usuario que ofrece recompensa es menor a lo que da muestra en pantalla el mensaje.
                     if (recompensa > ActivoUsuario.reputacionUsuario) {
-			System.out.println("No tiene la reputacion necesaria para ofrecer recompensa");
                         return 1;
                     //Si es mayor puede darla sin problemas.
                     }else if (recompensaActual>recompensa) {
-			System.out.println("Actualmente existe una recompensa mayor por esta pregunta");
                         return 2;
                     //Si no ofrece no pasa nada.
                     }else{
                         miPregunta.autorRecompensa = ActivoUsuario.getNombreUsuario();
                         miPregunta.recompensa = recompensa;
                         ok= 1;
-                        System.out.println("Recompensa actualizada");
                         return 3;
                     }
                 //Si la reputacion es igual a 0 no puede dar recompensa.      
 		}else {
-                    System.out.println("La reputacion no es suficiente para ofrecer recompensa");
                     ok=1;
                     return 4;
 		}
@@ -192,16 +185,12 @@ public class stack {
         int numRespuesta = inputNumeroRespuesta;
         pregunta miPregunta  = preguntas.getPreguntaN(numPregunta);
         respuesta miRespuesta = miPregunta.respuestas.getRespuestaN(numRespuesta);
-        System.out.println("ID pregunta :  "+ numPregunta + " ID respuesta "+ numRespuesta + " Total de respuestas : " +  miPregunta.respuestas.getTamano());
         if ( miRespuesta != null) {
-            miPregunta.estado = 1 ;
-            System.out.println("Respuesta aceptada");	
+            miPregunta.estado = 1 ;	
             usuario userRecompensa = usuarios.getUsuarioName(miPregunta.autorRecompensa);
             usuario userPregunta = usuarios.getUsuarioName(miPregunta.autorPregunta);
             System.out.println(userRecompensa);
-            System.out.println("me caigo aca?");
             usuario userRespuesta = usuarios.getUsuarioName(miPregunta.respuestas.getRespuestaN(numRespuesta).getAutor());
-            System.out.println("me caigo acaaaaa?");
             userRecompensa.reputacionUsuario = userRecompensa.reputacionUsuario - miPregunta.recompensa;
             userPregunta.reputacionUsuario = userPregunta.reputacionUsuario + 2;
             userRespuesta.reputacionUsuario = userRespuesta.reputacionUsuario + 15 + miPregunta.recompensa;
@@ -211,7 +200,6 @@ public class stack {
         }
         
         else{
-            System.out.println("ta mal");
             return false;
         }
     }  
@@ -224,25 +212,16 @@ public class stack {
 	String nombre  = nombreEtiqueta;
         //Si el nombre de etiqueta ya existe, muestra en pantalla que ya existe esa etiqueta.
 	if (etiquetas.isInside(nombre) == true) {
-            //System.out.println("Ya existe una etiqueta con ese nombre");
             return 1;
 	}
         //Si no existe el nombre, se debe ingresar una descripcion de esta misma y se a�ade.
 	else {
-            //System.out.println("Ingrese descripcion sobre ella");
             String descripcion = descripcionEtiqueta;
             etiqueta myEtiqueta = new etiqueta(nombre,descripcion);
             etiquetas.agregarEtiquetas(myEtiqueta);
             return 2;
 	}
     }
-    
-    //Constructor de la etiqueta nueva que se va a agregar.
-    /*public void agregarEtiqueta(String nombre,String descripcion) {
-	etiqueta myEtiqueta = new etiqueta(nombre,descripcion);
-	etiquetas.agregarEtiquetas(myEtiqueta);
-    }*/
-    
     /**
     * Funcion que muestra usuario
     */
