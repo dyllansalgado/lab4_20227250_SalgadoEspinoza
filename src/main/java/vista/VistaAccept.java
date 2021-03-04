@@ -16,6 +16,7 @@ public class VistaAccept extends javax.swing.JFrame {
      */
     public VistaAccept() {
         initComponents();
+        //aca puedo modificar ancho de tabla.
     }
 
     /**

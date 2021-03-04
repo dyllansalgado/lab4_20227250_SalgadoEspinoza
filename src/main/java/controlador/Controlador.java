@@ -403,7 +403,6 @@ public class Controlador implements ActionListener{
                         StackOverflow.ask(titulo, contenido, autor, StackOverflow.etiquetas.getEtiquetaN(index), reputacion);
                         JOptionPane.showMessageDialog (null, "Pregunta insertada", "Succes", JOptionPane.INFORMATION_MESSAGE);
                         //Se muestran las preguntas dentro de la ventana realizar pregunta.
-                        int repuActualizada = StackOverflow.ActivoUsuario.getReputacionUsuario()-reputacion;
                        
                         int n = StackOverflow.preguntas.getTamano();	
                         String matriz [][]= new String [n][9]; 
@@ -670,8 +669,7 @@ public class Controlador implements ActionListener{
                 vistaLogeado.TablaPreguntas.setModel(new javax.swing.table.DefaultTableModel(
                 matriz, new String [] {
                 "ID", "Titulo", "Contenido", "Etiquetas" ,"FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
-                }));
-                
+                })); 
             }
             //Si no se puede aceptar la respuesta se muestra mensaje.
             else{
