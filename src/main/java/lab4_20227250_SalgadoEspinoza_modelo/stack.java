@@ -1,7 +1,4 @@
 package lab4_20227250_SalgadoEspinoza_modelo;
-
-import java.util.Scanner;
-
 /**
  * Una clase para representar al stack.
  * Se utiliza para ingresar los metodos especificos del laboratorio.
@@ -32,9 +29,12 @@ public class stack {
     }
     //Metodos.
     /**
-    * login nos permite logear a un usuario ya registrado en el stack.
-    * Se solicitan los datos nombre y clave para logearse.
+    * login nos permite logear a un usuario ya registrado en el stack.Se solicitan los datos nombre y clave para logearse.
     * @author Dyllan Salgado
+    * @param inputUsuario se obtienen el nombre de usuario para realizar el logeo.
+    * @param inputPassword se obtiene la pass de usuario para realizar el logeo.
+    * @return 1 quiere decir que el nombre y clave es correcto y permite realizar el login, return 2 se ha equivocado en la clave
+    * return 3 el nombre no existe en el stack de registrados.
     */
     public int login(String inputUsuario,String inputPassword){
 	String user = inputUsuario;
@@ -63,29 +63,14 @@ public class stack {
     */
     public void logout() {
 	ActivoUsuario = null;
-    }
-        
-	
-    /**
-    * Nos permite mostrar en pantalla si existe alguien logeado o no.
-    * @author Dyllan Salgado
-    * @return salidaString.
-    */
-    public String activoUsuario2String() {
-	String salidaString ;
-	if (ActivoUsuario == null) {
-            salidaString = "##  No hay usuario logeado actualmente  ##";
-	}else {
-            salidaString = "## Registrado como:" + ActivoUsuario.getNombreUsuario()+ "  Rep : " + ActivoUsuario.reputacionUsuario + "  ##";
-	}
-    return salidaString;
-    }
-        
+    }   
     /**
     * registrarUsuario nos permite registrar a un usuario en el stack
-    * Se solicitan los datos nombre y clave para registrarse.
-    * Si el nombre ya existe se muestra en pantalla y vuelve a mostrar el menu.
+    * Se solicitan los datos nombre y clave para registrarse.Si el nombre ya existe se muestra en pantalla y vuelve a mostrar el menu.
     * @author Dyllan Salgado
+    * @param inputUsuario se ingresa nombre de usuario para realizar registro.
+    * @param inputPassword se ingresa clave de usuario para realizar registro.
+    * @return true si es que se logra registrar correctamente. return false si el usuario se encuentra registrado. 
     */
     public boolean registrarUsuario(String inputUsuario,String inputPassword) {
         int x = 0;
@@ -108,8 +93,12 @@ public class stack {
         }
         return false;
     }
-        
-    //Constructor del nuevo usuario registrado.
+    /**
+     * Constructor del nuevo usuario registrado.
+     * @param nameUser corresponde al nombre de usuario registrado.
+     * @param password corresponde a la clave del usuario registrado.
+     * @param reputacion corresponde a la reputacion que tiene el usuario registrado.
+     */
     public void registrarUsuario(String nameUser,String password, int reputacion) {
         usuario myUsuario= new usuario(nameUser, password,reputacion); 
         //Se agrega a la lista de usuarios.
@@ -118,18 +107,25 @@ public class stack {
     /**
     * ask nos permite formular una pregunta con un usuario logeado.Se solicitan un titulo de pregunta, contenido y la etiqueta a agregar.
     * @author Dyllan Salgado
-     * @param titulo es el titulo de la pregunta, contenido, autor,etiqueta,reputacion.
+    * @param titulo es el titulo de la pregunta.
+    * @param contenido contiene el contenido de la pregunta.
+    * @param autor contiene al autor que ha realizado la pregunta.
+    * @param miEtiqueta es la etiqueta que se ha seleccionado en la pregunta.
+    * @param reputacion es la reputacion que tiene el usuario.
     */
     public void ask(String titulo,String contenido, String autor,etiqueta miEtiqueta, int reputacion) {
 	pregunta myPregunta = new pregunta(titulo, contenido, autor,miEtiqueta,preguntas.getTamano() + 1 ,reputacion);
 	//Se agrega a la lista de preguntas.
         preguntas.agregarPreguntas(myPregunta);
+        //usuario miUsuario= usuarios.getUsuarioName(autor);
+        //miUsuario.reputacionUsuario = miUsuario.reputacionUsuario-reputacion;
     }
-    
     /**
     * answer nos permite formular una respuesta con un usuario logeado.Se solicita la pregunta a responder e indicar la respuesta.
     * @author Dyllan Salgado
-    * @param x es la pregunta seleccionada, respuesta y autor de respuesta.
+    * @param x es la pregunta seleccionada.
+    * @param respuesta corresponde a la respuesta que se ha creado.
+    * @param autor es el autor de la pregunta.
     */
     public void answer(int x,String respuesta , String autor) {
 	pregunta miPregunta = preguntas.getPreguntaN(x);
@@ -186,50 +182,6 @@ public class stack {
         return 5;
 	}
     }
-    
-    /*
-    public void reward() {
-	@SuppressWarnings("resource")
-	Scanner entradaEscaner = new Scanner(System.in);
-	System.out.println(preguntas.preguntas2String1());
-	System.out.println("Elija pregunta para ofrecer recompensa");
-	int x  = entradaEscaner.nextInt();
-        //Si no existe el indice muestra fuera de rango.
-        if (preguntas.getPreguntaN(x) == null) {
-            System.out.println("Indice fuera de rango");}
-        //Si esta en rango se asigna la recompensa a la pregunta.
-	else {
-            pregunta miPregunta = preguntas.getPreguntaN(x);
-            int ok  = 0;
-            while (ok == 0) {
-		System.out.println("Indique cuanta recompensa quiere agregar");
-		System.out.println("Su reputacion actual es : "+ ActivoUsuario.reputacionUsuario);
-		x = entradaEscaner.nextInt();
-                //Si la reputacion es mayor a 0 se ve si puede dar recompensa
-		if (x <= ActivoUsuario.getReputacionUsuario() && x > 0) {	
-                    int recompensaActual  =  miPregunta.recompensa;
-                    //Si la reputacion del usuario que ofrece recompensa es menor a lo que da muestra en pantalla el mensaje.
-                    if (x > ActivoUsuario.reputacionUsuario) {
-			System.out.println("No tiene la reputacion necesaria para ofrecer recompensa");
-                    //Si es mayor puede darla sin problemas.
-                    }else if (recompensaActual>x) {
-			System.out.println("Actualmente existe una recompensa mayor por esta pregunta");
-                    //Si no ofrece no pasa nada.       
-                    }else {
-			miPregunta.autorRecompensa = ActivoUsuario.getNombreUsuario();
-			miPregunta.recompensa = x;
-			ok= 1;
-			System.out.println("Recompensa actualizada");
-                    }
-                //Si la reputacion es igual a 0 no puede dar recompensa.      
-		}else {
-                    System.out.println("La reputacion no es suficiente para ofrecer recompensa");
-                    ok=1;
-		}
-            }
-	}
-    }
-    */
     /**
     * accept permite a un usuario que genero la pregunta aceptar una respuesta a esta misma.
     * Solo el usuario que genero la pregunta puede aceptar respuestas a esta.

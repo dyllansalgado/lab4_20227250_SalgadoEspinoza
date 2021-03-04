@@ -53,7 +53,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                              <Component id="BotonRegistrar" min="-2" max="-2" attributes="0"/>
+                              <Component id="BotonRegistrar" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="BotonLogearse" max="32767" attributes="0"/>
                           </Group>
@@ -109,12 +109,12 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BotonLogearse" alignment="3" max="32767" attributes="0"/>
-                  <Component id="BotonRegistrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BotonRegistrar" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Component id="statusLabel" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Component id="TextRegistrados" min="-2" max="-2" attributes="0"/>
+              <Component id="TextRegistrados" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="52" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>

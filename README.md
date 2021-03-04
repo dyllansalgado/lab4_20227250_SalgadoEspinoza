@@ -7,3 +7,4 @@ avanzando
 realice la creacion de nuevas etiquetas.
 avanzando en reward y accept.
 accept y reward listo, solo falta ver que se descuente reputacion cuando asignan.
+Tuve algunas fallas y trate de arreglarlo

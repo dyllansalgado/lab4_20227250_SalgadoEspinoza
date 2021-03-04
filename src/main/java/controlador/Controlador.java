@@ -3,8 +3,8 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import modelo.stack;
-import modelo.pregunta;
+import lab4_20227250_SalgadoEspinoza_modelo.stack;
+import lab4_20227250_SalgadoEspinoza_modelo.pregunta;
 import vista.Vista;
 import vista.VistaAccept;
 import vista.VistaEtiquetas;
@@ -409,6 +409,8 @@ public class Controlador implements ActionListener{
                         "ID", "Titulo", "Contenido", "Etiquetas" ,"FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
                     }));
                     vistaPregunta.StatusLabelPregunta.setText("Agregada con exito");
+                    vistaPregunta.InputReputacion.setText(String.valueOf(StackOverflow.ActivoUsuario.getReputacionUsuario()));
+                    vistaLogeado.InputReputacion.setText(String.valueOf(StackOverflow.ActivoUsuario.getReputacionUsuario()));
                 //Si no ingresa etiqueta.
                 }else{
                     JOptionPane.showMessageDialog(vistaVentanaPreguntas, "Ingrese minimo una etiqueta", "Alerta",
@@ -442,6 +444,7 @@ public class Controlador implements ActionListener{
             matriz, new String [] {
             "ID", "Titulo", "Contenido", "Etiquetas" ,"FechaPublicacion", "Autor", "Recompensa", "AutorRecompesa", "Estado"
             }));
+            
         }
         
         //SE CIERRA SESION DESDE LA VENTANA PREGUNTA.
@@ -746,5 +749,3 @@ public class Controlador implements ActionListener{
         }
     }  
 }
-
-

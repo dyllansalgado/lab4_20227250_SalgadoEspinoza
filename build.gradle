@@ -3,7 +3,7 @@ apply plugin: 'jacoco'
 apply plugin: 'application'
 
 
-mainClassName = 'modelo.main'
+mainClassName = 'lab4_20227250_SalgadoEspinoza_modelo.Main'
 
 repositories {
     jcenter()

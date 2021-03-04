@@ -42,9 +42,7 @@ public class pregunta {
 		setFechaPublicacion(tiempo.getActualTime());
 		setIdPregunta(id);
 		setRecompensa(recompensa);
-		if (recompensa==0) {
-			autorRecompensa = autor;
-		}
+		autorRecompensa = autor;
 		respuestas = new ListaDeRespuestas();
 	}
         /**

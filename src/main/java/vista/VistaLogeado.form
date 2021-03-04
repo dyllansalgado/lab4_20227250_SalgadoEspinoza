@@ -54,15 +54,15 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="BotonPregunta" min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="BotonCrearEtiquetas" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="BotonCrearEtiquetas" max="32767" attributes="0"/>
+                  <Component id="BotonPregunta" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="BotonAceptarRespuesta" pref="161" max="32767" attributes="0"/>
-                  <Component id="BotonRecompensa" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="BotonAceptarRespuesta" max="32767" attributes="0"/>
+                  <Component id="BotonRecompensa" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -70,69 +70,78 @@
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" pref="334" max="-2" attributes="0"/>
-                      <EmptySpace pref="211" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="211" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tituloUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="TituloReputacion" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="tituloUsuario" max="32767" attributes="0"/>
+                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="TituloReputacion" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="InputReputacion" min="-2" max="-2" attributes="0"/>
-                          <Component id="InputUsuario" min="-2" max="-2" attributes="0"/>
+                          <Component id="InputReputacion" max="32767" attributes="0"/>
+                          <Component id="InputUsuario" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="BotonVerPregunta" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel3" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="493" max="-2" attributes="0"/>
+                      <Component id="BotonVerPregunta" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="299" max="-2" attributes="0"/>
-              <Component id="BtnCerrarSesion" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="BtnCerrarSesion" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tituloUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="InputUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tituloUsuario" alignment="3" max="32767" attributes="0"/>
+                          <Component id="InputUsuario" alignment="3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="TituloReputacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="InputReputacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TituloReputacion" alignment="3" max="32767" attributes="0"/>
+                          <Component id="InputReputacion" alignment="3" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="BotonPregunta" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BotonRecompensa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="3" attributes="0">
+                      <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                      <Component id="BotonPregunta" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="BotonRecompensa" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="BotonAceptarRespuesta" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="BotonCrearEtiquetas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="3" attributes="0">
+                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                      <Component id="BotonCrearEtiquetas" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="BotonAceptarRespuesta" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="jLabel3" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="102" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="BotonVerPregunta" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="95" max="32767" attributes="0"/>
-              <Component id="BtnCerrarSesion" min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="102" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="BotonVerPregunta" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+              <Component id="BtnCerrarSesion" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
       </Group>
