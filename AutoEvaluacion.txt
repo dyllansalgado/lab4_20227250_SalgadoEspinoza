@@ -1,0 +1,142 @@
+///////////////////////////////////////////////////////////////////////////////////////
+/Escala de puntajes                                                                   /
+/0: No realizado.                                                                     /
+/0.25: Implementación con problemas mayores (funciona 25% de las veces o no           /
+/funciona)                                                                            /
+/0.5: Implementación con funcionamiento irregular (funciona 50% de las veces)         /  
+/0.75: Implementación con problemas menores (funciona 75% de las veces)               /
+/1: Implementación completa sin problemas (funciona 100% de las veces)                /  
+///////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////
+/Requerimientos No Funcionales Obligatorios :/
+//////////////////////////////////////////////
+1. (obligatorio) Incluir autoevaluación de cada uno de los requerimientos funcionales (obligatorios y extras) solicitados.
+PUNTAJE :1
+
+2. (obligatorio) Lenguaje y herramientas de trabajo: La implementación debe ser en el lenguaje de programación Java, en IDE especificados y version OpenJDK11.
+PUNTAJE :1
+
+3. (obligatorio) Interacciones con el programa: Todas las interacciones con el programa deben ser mediante interfaz grafica.
+PUNTAJE :1
+
+4. (obligatorio) Uso del paradigma: Su solución debe demostrar la aplicación del paradigma orientado a objetos y dirigida por eventos.
+PUNTAJE :1
+
+5. (obligatorio) Prerrequisitos: Para cada funcionalidad se establecen prerrequisitos. Estos deben ser cumplidos para que se proceda con la evaluación de la funcionalidad implementada.
+PUNTAJE :1
+
+6. (1 pts) Documentación: Se debe documentar el código indicando una breve descripción de las clases creadas, sus atributos, métodos públicos y relaciones.
+PUNTAJE : 1
+
+7. (1 pto) Organización del código: Se debe cuidar la organización del código (orden y claridad).
+PUNTAJE: 1
+
+8. (1.5 pto) Diagrama de análisis: Como parte de su Informe de Laboratorio, debe incluir un diagrama de clases UML a nivel de análisis que describa las entidades y relaciones del problema abordado. Este diagrama se debe crear antes del proceso de desarrollo.
+PUNTAJE: 1
+
+9. (1.5 pto) Diagrama de diseño: Como parte de su Informe de Laboratorio, debe incluir un diagrama de clases UML tras la implementación de la solución, este diagrama debe ser coherente con la implementación en código de su solución incluyendo todas las clases de su código. Este diagrama se debe crear después del desarrollo de la solución.
+PUNTAJE: 1
+
+10. (1 pto) Historial:  Historial de trabajo en Github. Al menos 10 commits distribuidos en un periodo de tiempo mayor o igual a 1 semana.
+PUNTAJE : 1
+
+/////////////////////////////
+/Requerimientos Funcionales./
+/////////////////////////////
+1. (1 pto) Clases y estructuras que forman el programa: Como parte del diseño orientado a objetos de su solución, considere como mínimo modelar las siguientes entidades (y sus respectivas relaciones) dentro de su programa: Usuario, Etiqueta, Pregunta, Respuestas, Stack.
+
+PUNTAJE : 1
+
+Requisitos:- Usar estructuras basadas en clases
+	   - Especificar representación de manera clara para cada clase implementado (en el informe y en el código a través de comentarios). Luego implementar constructores, getters, setters y otros métodos según lo requerido en los requisitos a continuación.
+
+2.(0.7 pto) register/login/logout: Esta funcionalidad debe permitir el registro de nuevos usuarios en la plataforma, además de su ingreso y salida a la plataforma con sus credenciales.
+Requisitos: 
+
+- Estas funcionalidades deben estar implementadas a través de la interfaz gráfica utilizando el paradigma dirigido por eventos
+- Se debe almacenar el nuevo usuario en el Stack
+- El programa debe validar las credenciales del usuario en el Stack antes de permitir el ingreso. En caso de que la contraseña sea incorrecta o el usuario no exista en el stack debe reflejar dicho comportamiento en la interfaz gráfica.
+- En caso de logout debe existir una sesión iniciada previamente en el stack.
+
+
+PUNTAJE : 1
+
+4.(0.7 pto) ask: Funcionalidad que permite a un usuario (con sesión iniciada en el Stack) realizar una nueva pregunta.
+
+Requisito : - Implementar la vista relacionada con la creación y envío de preguntas. Es decir, debe implementar una vista que le da la posibilidad al usuario de ingresar un texto correspondiente al cuerpo de la pregunta y posteriormente el envío al stack.
+- Se debe almacenar la nueva pregunta en el Stack, rellenando los atributos asociados a esta al momento de crear la pregunta (cómo el ID, Fecha de creación, Autor y Estado).
+- Solo los usuarios con sesión iniciada pueden crear preguntas en el Stack.
+
+
+PUNTAJE : 1
+
+5. (0.7 pto) answer: Funcionalidad que permite añadir una respuesta a una pregunta dentro del Stack, dejándola almacenada en la estructura correspondiente.
+
+Requisitos:- Esta funcionalidad debe mostrar una lista con todas las preguntas del Stack, permitiendo elegir al usuario seleccionar una de ellas desde la interfaz gráfica para poder escribir una respuesta a ésta.
+- Solo los usuarios con sesión iniciada pueden responder preguntas del Stack.
+
+
+PUNTAJE : 1
+
+6. (0.7 pto) reward: Funcionalidad que permite a un usuario (con sesión iniciada) en la plataforma ofrecer una recompensa para una determinada pregunta. 
+La recompensa puede ir dirigida a preguntas propias o de terceros. 
+No se puede ofrecer recompensas mayores a la reputación con la que cuenta el usuario.
+Una vez ofrecida la recompensa, el puntaje ofrecido queda retenido temporalmente y descontado de la reputación actual. 
+De esta forma se resguarda que el usuario no pueda ofrecer más recompensas de las que podrá eventualmente pagar. 
+Una vez que una respuesta es aceptada, la recompensa se descuenta definitivamente de la reputación del autor y se traspasa al usuario que entregó la respuesta.
+Requisitos:- Para esta funcionalidad, en la interfaz gráfica se debe mostrar una lista con todas las preguntas del Stack, permitiendo elegir una de las preguntas para poder ofrecer la recompensa.
+- El puntaje retenido debe quedar almacenado en el Stack hasta que la pregunta tenga respuesta aceptada.
+- Solo los usuarios con sesión iniciada pueden ofrecer recompensas.
+
+
+PUNTAJE : 0.75
+
+7. (0.7 pto) Funcionalidad que permite a un usuario (con sesión iniciada en la plataforma) aceptar una respuesta a una de sus preguntas.
+Requisitos:- Para esta funcionalidad, implementar una vista que muestre solo la lista  con las preguntas del propio usuario en Stack, y que permita seleccionar una de las preguntas para aceptar una de las respuestas indicadas en élla.
+- Si hay recompensas activas en la pregunta, estas deben resolverse otorgando los puntos de reputación al usuario.
+- Solo los usuarios con sesión iniciada pueden aceptar respuestas.
+
+
+PUNTAJE : 1
+
+/////////////////////////////
+/Funcionalidades OPCIONALES /  
+/////////////////////////////
+
+8. (Puntaje a eleccion del profesor) CrearEtiqueta: Permite crear etiquetas a usuarios logeados. Las etiquetas podran ser utilizadas por todos los usuarios del stack.
+Si el nombre de etiqueta ya existe, saldra un mensaje diciendo que existe por lo tanto no se añade.
+Requisitos: - Usuario logeado.
+
+PUNTAJE: 1
+
+9. (2 pto) vote: Función que permite a un usuario votar por una pregunta o respuesta. El voto puede ser positivo o negativo.
+
+Requisitos: - Las entidades de Pregunta y Respuesta deben poder registrar la cantidad de votos.
+- Se debe otorgar el puntaje correspondiente a la Pregunta y Respuesta.
+- Para esta funcionalidad, la interfaz gráfica debe mostrar una lista con todas las preguntas y respuestas del Stack (de forma ordenada por la fecha de publicación) que no sean del mismo usuario para permitir elegir una pregunta o una respuesta para otorgar el voto positivo o negativo 
+- La elección de la pregunta/respuesta a votar puede ser por ID mediante el evento de presionar un botón, haciendo click sobre un ítem de una lista u otro evento, queda a su decisión.
+- Solo los usuarios con sesión iniciada pueden votar.
+
+PUNTAJE: 0
+
+10.(2 pto) report: Funcionalidad que permite a un usuario reportar preguntas o respuestas que contengan contenido ofensivo. Este contenido puede encontrarse en preguntas o respuestas.
+Requisitos:- Las entidades de Pregunta y Respuesta deben poder registrar la cantidad de reportes.
+- Solo los usuarios con sesión iniciada pueden reportar.
+
+PUNTAJE: 0
+
+11.(2 pto) ranking: Funcionalidad que retorna un ranking de las preguntas o respuestas de una pregunta según votación, pudiendo ser el orden ascendente (menos votado al más votado) o descendente (más votado al menos votado). La función se puede usar directamente sin pasar por login.
+Requisitos:- La funcionalidad debe permitir ordenar por ranking de puntaje (ascendente o descendente) todas las preguntas del stack, o bien todas las respuestas a una pregunta.
+- Puede utilizar métodos de ordenamiento disponibles en la biblioteca estándar de C# u Java, o bien implementar uno propio.
+- No es necesario tener sesión iniciada para usar la funcionalidad ranking.
+
+
+PUNTAJE: 0
+
+12.(2 pto) search: Funcionalidad que permite buscar preguntas o respuestas en base a una coincidencia parcial de texto. Se debe identificar el tipo de búsqueda a realizar (si se hará por cualquier texto dentro de las preguntas, respuestas o etiquetas). La función se puede usar directamente sin pasar por login.
+Requisitos:- La funcionalidad debe permitir ordenar buscar por preguntas, respuestas o etiquetas dentro del Stack.
+- La funcionalidad debe permitir coincidencias parciales de texto (substring) y debe ser insensible a las mayúsculas.
+- No es necesario tener sesión iniciada para usar la funcionalidad search.
+
+PUNTAJE: 0

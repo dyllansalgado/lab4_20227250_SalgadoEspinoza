@@ -2,7 +2,7 @@
 package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import lab4_20227250_SalgadoEspinoza_modelo.stack;
 import lab4_20227250_SalgadoEspinoza_modelo.pregunta;
 import vista.Vista;
@@ -13,6 +13,7 @@ import vista.VistaPregunta;
 import vista.VistaReward;
 import vista.VistaVentanaPreguntas;
 import vista.VerRespuestas;
+
 /**
  * Se importan todas las vistas que tendra el controlador dentro de la clase controlador.
  * @author dyllan
